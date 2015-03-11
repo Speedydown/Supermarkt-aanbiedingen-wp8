@@ -45,10 +45,15 @@
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Categorie.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\ProductPagina.cs" />
+    <Compile Include="Classes\Supermarkt.cs" />
+    <Compile Include="Classes\SupermarktItem.cs" />
     <Compile Include="GetSAData.cs" />
+    <Compile Include="PageParsers\DiscountsFromSupermarketParser.cs" />
     <Compile Include="PageParsers\PopularSuperMarketsParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Supermarkt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

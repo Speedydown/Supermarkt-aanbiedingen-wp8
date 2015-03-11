@@ -68,7 +68,7 @@ namespace Supermarkt_aanbiedingen
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetPopularSuperMarkets();
+            
         }
 
         /// <summary>
@@ -109,5 +109,22 @@ namespace Supermarkt_aanbiedingen
         }
 
         #endregion
+
+        private async void PopularSupermarketsLV_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetPopularSuperMarkets();
+                ProductPagina pp = await GetSAData.GetDiscountsFromSupermarket(supermarkten[6]);
+                (sender as ListView).ItemsSource = supermarkten;
+            }
+            catch(Exception)
+            {
+                //iets doen
+            }
+
+            
+
+        }
     }
 }

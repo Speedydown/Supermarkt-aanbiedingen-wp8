@@ -22,6 +22,39 @@
                 <HubSection.Header>
                     <TextBlock x:Uid="Section1Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Vandaag populair" Foreground="#FF82BAD1"/>
                 </HubSection.Header>
+                <HubSection.ContentTemplate>
+                    <DataTemplate>
+                        <ListView x:ConnectionId='1' x:Name="PopularSupermarketsLV"                                      >
+                            <ListView.Header>
+                                <TextBlock Text="Populaire supermarkten:" Foreground="#FF82BAD1" FontWeight="Bold" FontSize="20" />
+                            </ListView.Header>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#FF82BAD1" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="5"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding ImageURL}" Stretch="Fill" Width="100" Height="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+                                            <TextBlock Text="{Binding Name}" Foreground="#FF82BAD1" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="2"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DataTemplate>
+                </HubSection.ContentTemplate>
             </HubSection>
         </Hub>
 

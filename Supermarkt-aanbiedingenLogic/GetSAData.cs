@@ -21,5 +21,19 @@ namespace Supermarkt_aanbiedingenLogic
 
             return PopularSuperMarketsParser.GetPopularSuperMarkets(PageSource);
         }
+
+        public static IAsyncOperation<ProductPagina> GetDiscountsFromSupermarket(Supermarkt supermarkt)
+        {
+            return GetDiscountsFromSupermarketHelper(supermarkt).AsAsyncOperation();
+        }
+
+        private static async Task<ProductPagina> GetDiscountsFromSupermarketHelper(Supermarkt supermarkt)
+        {
+            bool DateUndetermined = supermarkt.URL.Contains("lidl");
+
+            string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.supermarktaanbiedingen.com" + supermarkt.URL);
+
+            return DiscountsFromSupermarketParser.GetProductPaginaFromSourceAndURL(PageSource, supermarkt, DateUndetermined);
+        }
     }
 }

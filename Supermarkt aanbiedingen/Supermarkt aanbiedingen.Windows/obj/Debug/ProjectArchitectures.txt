@@ -1,1 +1,1 @@
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\Supermarkt aanbiedingen.Windows.csproj;neutral
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\Supermarkt aanbiedingen.Windows.csproj;neutral

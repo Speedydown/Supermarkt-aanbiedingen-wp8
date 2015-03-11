@@ -32,3 +32,35 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ProjectArchitectures.txt
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\App.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\MainPage.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.xr.xml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.pdb
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\resources.pri
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\AppxManifest.xml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.build.appxrecipe
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\App.g.i.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\App.g.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MainPage.g.i.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MainPage.g.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\App.xaml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MainPage.xaml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\App.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MainPage.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\XamlSaveStateFile.xml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.exe
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.pdb
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\priconfig.xml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\priconfig.xml.intermediate
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\layout.resfiles
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\layout.resfiles.intermediate
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\resources.resfiles
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\resources.resfiles.intermediate
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\pri.resfiles
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\pri.resfiles.intermediate
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\qualifiers.txt
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ProjectArchitectures.txt
