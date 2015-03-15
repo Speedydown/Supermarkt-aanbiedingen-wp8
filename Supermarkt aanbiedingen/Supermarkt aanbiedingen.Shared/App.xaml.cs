@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Supermarkt_aanbiedingenLogic;
 
 namespace Supermarkt_aanbiedingen
 {
@@ -30,7 +31,7 @@ namespace Supermarkt_aanbiedingen
             this.Suspending += this.OnSuspending;
         }
 
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -70,10 +71,23 @@ namespace Supermarkt_aanbiedingen
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += this.RootFrame_FirstNavigated;
 #endif
-                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                if ((await Supermarkt.GetSelectedSupermarketsFromStorage()) == null)
                 {
-                    throw new Exception("Failed to create initial page");
+                    if (!rootFrame.Navigate(typeof(ConfigureSupermarkets), e.Arguments))
+                    {
+                        throw new Exception("Failed to create initial page");
+                    }
                 }
+                else
+                {
+                    if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                    {
+                        throw new Exception("Failed to create initial page");
+                    }
+                }
+
+
+                
             }
 
             Window.Current.Activate();

@@ -24,7 +24,7 @@ namespace Supermarkt_aanbiedingenLogic
                     string Title = HTMLParserUtil.GetContentAndSubstringInput("\" title=\"", "\"><span class=\"shop-large", Source, out Source);
                     string Name = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></li>", Source, out Source);
 
-                    Supermarkets.Add(new Supermarkt(Name, URL, Title));
+                    Supermarkets.Add(new Supermarkt(Name, URL, Title, null));
                 }
                 catch(Exception)
                 {

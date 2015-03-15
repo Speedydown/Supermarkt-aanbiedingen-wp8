@@ -19,15 +19,14 @@
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\Supermarkt aanbiedingen.WindowsPhone.exe">
       <PackagePath>Supermarkt aanbiedingen.WindowsPhone.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.winmd">
-      <PackagePath>Supermarkt_aanbiedingenLogic.winmd</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\packages\Newtonsoft.Json.7.0.1-beta1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.dll">
       <PackagePath>WebCrawlerTools.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\Assets\Logo.scale-240.png">
-      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.winmd">
+      <PackagePath>Supermarkt_aanbiedingenLogic.winmd</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
@@ -85,8 +84,14 @@
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\ConfigXaml\ConfigureSupermarkets.xbf">
+      <PackagePath>ConfigXaml\ConfigureSupermarkets.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\SupermarketDiscounts.xbf">
+      <PackagePath>SupermarketDiscounts.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\Supermarkt aanbiedingen.WindowsPhone.xr.xml">
       <PackagePath>Supermarkt aanbiedingen.WindowsPhone.xr.xml</PackagePath>

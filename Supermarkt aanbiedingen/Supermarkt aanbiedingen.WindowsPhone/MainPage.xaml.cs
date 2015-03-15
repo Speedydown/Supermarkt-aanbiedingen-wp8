@@ -114,9 +114,18 @@ namespace Supermarkt_aanbiedingen
         {
             try
             {
-                List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetPopularSuperMarkets();
-                ProductPagina pp = await GetSAData.GetDiscountsFromSupermarket(supermarkten[6]);
+                List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetSelectedSuperMarkets();
                 (sender as ListView).ItemsSource = supermarkten;
+
+                ((sender as ListView).Parent as Grid).Visibility = Windows.UI.Xaml.Visibility.Visible;
+                
+                foreach (UIElement u in (((sender as ListView).Parent as Grid).Parent as Grid).Children)
+                {
+                    if ((u as Grid).Name == "LoadingGrid")
+                    {
+                        (u as Grid).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    }
+                }
             }
             catch(Exception)
             {
@@ -125,6 +134,14 @@ namespace Supermarkt_aanbiedingen
 
             
 
+        }
+
+        private void PopularSupermarketsLV_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Frame.Navigate(typeof(SupermarketDiscounts), (e.ClickedItem as Supermarkt).Serialize()))
+            {
+
+            }
         }
     }
 }

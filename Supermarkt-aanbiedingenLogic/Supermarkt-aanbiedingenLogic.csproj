@@ -52,8 +52,17 @@
     <Compile Include="Classes\SupermarktItem.cs" />
     <Compile Include="GetSAData.cs" />
     <Compile Include="PageParsers\DiscountsFromSupermarketParser.cs" />
+    <Compile Include="PageParsers\SupermarketsParser.cs" />
     <Compile Include="PageParsers\PopularSuperMarketsParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1-beta1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

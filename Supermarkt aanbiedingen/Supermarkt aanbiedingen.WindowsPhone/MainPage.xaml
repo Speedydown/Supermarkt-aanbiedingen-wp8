@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls="using:Supermarkt_aanbiedingenLogic.Controls"
     Background="White">
 
     <Grid x:Name="LayoutRoot">
@@ -16,43 +17,61 @@
         </Grid.ChildrenTransitions>
         <Hub>
             <Hub.Header>
-                <TextBlock x:Uid="Section1Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Supermarktaanbiedingen.com" Foreground="#FF82BAD1"/>
+                <TextBlock x:Uid="Section1Header" OpticalMarginAlignment="TrimSideBearings" Text="Supermarktaanbiedingen.com" Foreground="DarkBlue"/>
             </Hub.Header>
             <HubSection>
                 <HubSection.Header>
-                    <TextBlock x:Uid="Section1Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Vandaag populair" Foreground="#FF82BAD1"/>
+                    <TextBlock x:Uid="Section1Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Jouw aanbiedingen:" Foreground="DarkBlue"/>
                 </HubSection.Header>
                 <HubSection.ContentTemplate>
                     <DataTemplate>
-                        <ListView x:Name="PopularSupermarketsLV" Loaded="PopularSupermarketsLV_Loaded">
-                            <ListView.Header>
-                                <TextBlock Text="Populaire supermarkten:" Foreground="#FF82BAD1" FontWeight="Bold" FontSize="20" />
-                            </ListView.Header>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border BorderBrush="#FF82BAD1" BorderThickness="1">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="5"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="{Binding ImageURL}" Stretch="Fill" Width="100" Height="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-                                            <TextBlock Text="{Binding Name}" Foreground="#FF82BAD1" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="2"/>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                        <Grid>
+                            <Grid x:Name="Content" Visibility="Collapsed">
+                                <ListView x:Name="PopularSupermarketsLV" Loaded="PopularSupermarketsLV_Loaded" ItemClick="PopularSupermarketsLV_ItemClick" IsItemClickEnabled="True">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="0,0,0,10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="5"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image Source="{Binding ImageURL}" Stretch="Fill" Width="60" Height="60" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
+                                                    <TextBlock Text="Aanbiedingen:" HorizontalAlignment="Right" FontSize="17" Grid.Row="1" Grid.Column="2" Margin="0,0,4,2" VerticalAlignment="Bottom"/>
+                                                    <TextBlock Text="{Binding ProductPagina.Producten.Count}" HorizontalAlignment="Right" FontSize="21" Grid.Row="1" Grid.Column="3" Margin="0,0,6,2" VerticalAlignment="Bottom"/>
+                                                    <!--Samevattingen van aanbiedingen tonen?-->
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                            <Grid x:Name="LoadingGrid" Visibility="Visible">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="1" Text="De nieuwste aanbiedingen worden opgehaald!" TextWrapping="WrapWholeWords" TextAlignment="Center" Foreground="DarkBlue" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                                <controls:ProgressRing Grid.Row="2" Height="250" Width="250"  Visibility="Visible" IsActive="True" Margin="0,0,0,10"/>
+                                <TextBlock Grid.Row="3" Text="Een moment geduld AUB...." Foreground="DarkBlue" FontSize="14" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                        
                     </DataTemplate>
                 </HubSection.ContentTemplate>
             </HubSection>

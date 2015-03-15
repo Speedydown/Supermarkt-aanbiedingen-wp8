@@ -19,6 +19,15 @@
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe">
       <PackagePath>Supermarkt aanbiedingen.Windows.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.winmd">
+      <PackagePath>Supermarkt_aanbiedingenLogic.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.dll">
+      <PackagePath>WebCrawlerTools.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -70,6 +79,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\ConfigXaml\ConfigureSupermarkets.xbf">
+      <PackagePath>ConfigXaml\ConfigureSupermarkets.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>

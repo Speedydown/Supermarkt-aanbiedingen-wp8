@@ -10,16 +10,34 @@ namespace Supermarkt_aanbiedingenLogic
 {
     public static class GetSAData
     {
-        public static IAsyncOperation<IList<Supermarkt>> GetPopularSuperMarkets()
+        public static IAsyncOperation<IList<Supermarkt>> GetAllSupermarkets()
         {
-            return GetPopularSuperMarketsHelper().AsAsyncOperation();
+            return GetAllSupermarketsHelper().AsAsyncOperation();
         }
 
-        private static async Task<IList<Supermarkt>> GetPopularSuperMarketsHelper()
+        private static async Task<IList<Supermarkt>> GetAllSupermarketsHelper()
         {
             string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.supermarktaanbiedingen.com/");
+            IList<Supermarkt> Supermarkets = SupermarketsParser.GetSupermarkets(PageSource);
 
-            return PopularSuperMarketsParser.GetPopularSuperMarkets(PageSource);
+            return Supermarkets;
+        }
+
+        public static IAsyncOperation<IList<Supermarkt>> GetSelectedSuperMarkets()
+        {
+            return GetSelectedSuperMarketsHelper().AsAsyncOperation();
+        }
+
+        private static async Task<IList<Supermarkt>> GetSelectedSuperMarketsHelper()
+        {
+            IList<Supermarkt> Supermarkets = await Supermarkt.GetSelectedSupermarketsFromStorage();
+
+            foreach (Supermarkt s in Supermarkets)
+            {
+                await s.GetProductpagina();
+            }
+
+            return Supermarkets;
         }
 
         public static IAsyncOperation<ProductPagina> GetDiscountsFromSupermarket(Supermarkt supermarkt)

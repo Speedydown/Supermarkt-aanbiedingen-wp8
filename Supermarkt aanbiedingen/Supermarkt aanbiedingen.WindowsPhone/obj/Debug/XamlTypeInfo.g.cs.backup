@@ -124,25 +124,37 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[8];
-            _typeNameTable[0] = "Supermarkt_aanbiedingen.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Supermarkt_aanbiedingen.Common.NavigationHelper";
+            _typeNameTable = new string[14];
+            _typeNameTable[0] = "Supermarkt_aanbiedingenLogic.Controls.ProgressRing";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[2] = "Boolean";
+            _typeNameTable[3] = "Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettingValues";
             _typeNameTable[4] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[5] = "Supermarkt_aanbiedingen.Common.ObservableDictionary";
-            _typeNameTable[6] = "Object";
-            _typeNameTable[7] = "String";
+            _typeNameTable[5] = "Supermarkt_aanbiedingen.ConfigureSupermarkets";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[8] = "Supermarkt_aanbiedingen.Common.NavigationHelper";
+            _typeNameTable[9] = "Supermarkt_aanbiedingen.Common.ObservableDictionary";
+            _typeNameTable[10] = "Object";
+            _typeNameTable[11] = "String";
+            _typeNameTable[12] = "Supermarkt_aanbiedingen.MainPage";
+            _typeNameTable[13] = "Supermarkt_aanbiedingen.SupermarketDiscounts";
 
-            _typeTable = new global::System.Type[8];
-            _typeTable[0] = typeof(global::Supermarkt_aanbiedingen.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Supermarkt_aanbiedingen.Common.NavigationHelper);
+            _typeTable = new global::System.Type[14];
+            _typeTable[0] = typeof(global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[2] = typeof(global::System.Boolean);
+            _typeTable[3] = typeof(global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettingValues);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[5] = typeof(global::Supermarkt_aanbiedingen.Common.ObservableDictionary);
-            _typeTable[6] = typeof(global::System.Object);
-            _typeTable[7] = typeof(global::System.String);
+            _typeTable[5] = typeof(global::Supermarkt_aanbiedingen.ConfigureSupermarkets);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[8] = typeof(global::Supermarkt_aanbiedingen.Common.NavigationHelper);
+            _typeTable[9] = typeof(global::Supermarkt_aanbiedingen.Common.ObservableDictionary);
+            _typeTable[10] = typeof(global::System.Object);
+            _typeTable[11] = typeof(global::System.String);
+            _typeTable[12] = typeof(global::Supermarkt_aanbiedingen.MainPage);
+            _typeTable[13] = typeof(global::Supermarkt_aanbiedingen.SupermarketDiscounts);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,9 +189,12 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::Supermarkt_aanbiedingen.MainPage(); }
-        private object Activate_5_ObservableDictionary() { return new global::Supermarkt_aanbiedingen.Common.ObservableDictionary(); }
-        private void MapAdd_5_ObservableDictionary(object instance, object key, object item)
+        private object Activate_0_ProgressRing() { return new global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing(); }
+        private object Activate_5_ConfigureSupermarkets() { return new global::Supermarkt_aanbiedingen.ConfigureSupermarkets(); }
+        private object Activate_9_ObservableDictionary() { return new global::Supermarkt_aanbiedingen.Common.ObservableDictionary(); }
+        private object Activate_12_MainPage() { return new global::Supermarkt_aanbiedingen.MainPage(); }
+        private object Activate_13_SupermarketDiscounts() { return new global::Supermarkt_aanbiedingen.SupermarketDiscounts(); }
+        private void MapAdd_9_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -197,24 +212,24 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
             switch (typeIndex)
             {
 
-            case 0:   //  Supermarkt_aanbiedingen.MainPage
-                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
-                userType.AddMemberName("NavigationHelper");
-                userType.AddMemberName("DefaultViewModel");
+            case 0:   //  Supermarkt_aanbiedingenLogic.Controls.ProgressRing
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_0_ProgressRing;
+                userType.AddMemberName("IsActive");
+                userType.AddMemberName("TemplateSettings");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Windows.UI.Xaml.Controls.Control
                 xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  Boolean
                 xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Supermarkt_aanbiedingen.Common.NavigationHelper
+            case 3:   //  Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettingValues
                 userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -225,34 +240,116 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
                 xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Supermarkt_aanbiedingen.Common.ObservableDictionary
-                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_5_ObservableDictionary;
+            case 5:   //  Supermarkt_aanbiedingen.ConfigureSupermarkets
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_ConfigureSupermarkets;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Supermarkt_aanbiedingen.Common.NavigationHelper
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Object
+            case 9:   //  Supermarkt_aanbiedingen.Common.ObservableDictionary
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.DictionaryAdd = MapAdd_9_ObservableDictionary;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Object
                 xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  String
+            case 11:   //  String
                 xamlType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Supermarkt_aanbiedingen.MainPage
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_MainPage;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Supermarkt_aanbiedingen.SupermarketDiscounts
+                userType = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_SupermarketDiscounts;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
-        private object get_0_MainPage_NavigationHelper(object instance)
+        private object get_0_ProgressRing_IsActive(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing)instance;
+            return that.IsActive;
+        }
+        private void set_0_ProgressRing_IsActive(object instance, object Value)
+        {
+            var that = (global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing)instance;
+            that.IsActive = (global::System.Boolean)Value;
+        }
+        private object get_1_ProgressRing_TemplateSettings(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing)instance;
+            return that.TemplateSettings;
+        }
+        private void set_1_ProgressRing_TemplateSettings(object instance, object Value)
+        {
+            var that = (global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing)instance;
+            that.TemplateSettings = (global::Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettingValues)Value;
+        }
+        private object get_2_ConfigureSupermarkets_NavigationHelper(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingen.ConfigureSupermarkets)instance;
+            return that.NavigationHelper;
+        }
+        private object get_3_ConfigureSupermarkets_DefaultViewModel(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingen.ConfigureSupermarkets)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_4_MainPage_NavigationHelper(object instance)
         {
             var that = (global::Supermarkt_aanbiedingen.MainPage)instance;
             return that.NavigationHelper;
         }
-        private object get_1_MainPage_DefaultViewModel(object instance)
+        private object get_5_MainPage_DefaultViewModel(object instance)
         {
             var that = (global::Supermarkt_aanbiedingen.MainPage)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_6_SupermarketDiscounts_NavigationHelper(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingen.SupermarketDiscounts)instance;
+            return that.NavigationHelper;
+        }
+        private object get_7_SupermarketDiscounts_DefaultViewModel(object instance)
+        {
+            var that = (global::Supermarkt_aanbiedingen.SupermarketDiscounts)instance;
             return that.DefaultViewModel;
         }
 
@@ -263,16 +360,54 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
 
             switch (longMemberName)
             {
+            case "Supermarkt_aanbiedingenLogic.Controls.ProgressRing.IsActive":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingenLogic.Controls.ProgressRing");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_ProgressRing_IsActive;
+                xamlMember.Setter = set_0_ProgressRing_IsActive;
+                break;
+            case "Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettings":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingenLogic.Controls.ProgressRing");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Supermarkt_aanbiedingenLogic.Controls.ProgressRing.TemplateSettingValues");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_ProgressRing_TemplateSettings;
+                xamlMember.Setter = set_1_ProgressRing_TemplateSettings;
+                break;
+            case "Supermarkt_aanbiedingen.ConfigureSupermarkets.NavigationHelper":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.ConfigureSupermarkets");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Supermarkt_aanbiedingen.Common.NavigationHelper");
+                xamlMember.Getter = get_2_ConfigureSupermarkets_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Supermarkt_aanbiedingen.ConfigureSupermarkets.DefaultViewModel":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.ConfigureSupermarkets");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Supermarkt_aanbiedingen.Common.ObservableDictionary");
+                xamlMember.Getter = get_3_ConfigureSupermarkets_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
             case "Supermarkt_aanbiedingen.MainPage.NavigationHelper":
                 userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.MainPage");
                 xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Supermarkt_aanbiedingen.Common.NavigationHelper");
-                xamlMember.Getter = get_0_MainPage_NavigationHelper;
+                xamlMember.Getter = get_4_MainPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Supermarkt_aanbiedingen.MainPage.DefaultViewModel":
                 userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.MainPage");
                 xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Supermarkt_aanbiedingen.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_MainPage_DefaultViewModel;
+                xamlMember.Getter = get_5_MainPage_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Supermarkt_aanbiedingen.SupermarketDiscounts.NavigationHelper":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.SupermarketDiscounts");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Supermarkt_aanbiedingen.Common.NavigationHelper");
+                xamlMember.Getter = get_6_SupermarketDiscounts_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Supermarkt_aanbiedingen.SupermarketDiscounts.DefaultViewModel":
+                userType = (global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Supermarkt_aanbiedingen.SupermarketDiscounts");
+                xamlMember = new global::Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Supermarkt_aanbiedingen.Common.ObservableDictionary");
+                xamlMember.Getter = get_7_SupermarketDiscounts_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

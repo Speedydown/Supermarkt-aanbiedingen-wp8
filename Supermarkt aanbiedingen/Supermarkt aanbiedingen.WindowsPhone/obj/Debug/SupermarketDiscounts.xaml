@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="Supermarkt_aanbiedingen.SupermarketDiscounts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Supermarkt_aanbiedingen"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="White">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProductPagina.ProductCountText}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="5" Grid.Row="0" Grid.RowSpan="3">
+        <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
+        </Border>
+        <ListView x:ConnectionId='1' x:Name="ProductsLV" ItemsSource="{Binding ProductPagina.Producten}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True"                                 >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="3">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120" Grid.Row="0" Grid.RowSpan="5"/>
+                            <TextBlock Text="{Binding Name}" Grid.Column="3" FontSize="22"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate> 
+        </ListView>
+    </Grid>
+</Page>
+

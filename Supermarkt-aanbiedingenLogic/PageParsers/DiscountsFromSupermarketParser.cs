@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,11 @@ namespace Supermarkt_aanbiedingenLogic
                 ValidUntil = "Geen einddatum van de aanbiedingen bekend.";
             }
 
-            CurrentPage = new ProductPagina(supermarkt, ValidUntil);
+            CurrentPage = new ProductPagina(ValidUntil, new List<Product>(), supermarkt);
 
             GetProductsFromSource(Source, CurrentPage);
+
+            Debug.WriteLine(supermarkt.Name + ": " + (CurrentPage.Producten.Last() as Product).Name);
 
             return CurrentPage;
         }
@@ -45,13 +48,38 @@ namespace Supermarkt_aanbiedingenLogic
 
                     int IndexOfBR = Source.IndexOf("<br \\>");
 
+                    bool SkipPrice = false;
+
                     if (IndexOfBR < 15 && IndexOfBR != -1)
                     {
-                        ProductQuantity = HTMLParserUtil.GetContentAndSubstringInput("<small>", "<br \\>", Source, out Source);
+                        try
+                        {
+                            ProductQuantity = HTMLParserUtil.GetContentAndSubstringInput("<small>", "<br \\>", Source, out Source);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                ProductQuantity = HTMLParserUtil.GetContentAndSubstringInput("<b>", "</b>", Source, out Source);
+                            }
+                            catch
+                            {
+
+                            }
+
+                            SkipPrice = true;
+                        }
                     }
 
-                    string ProductPrice = HTMLParserUtil.GetContentAndSubstringInput("<del>", "</del>", Source, out Source);
-                    string ProductDiscountPrice = HTMLParserUtil.GetContentAndSubstringInput("<span class=\"price\">", "</span>", Source, out Source);
+                    string ProductPrice = string.Empty;
+                    string ProductDiscountPrice = string.Empty;
+
+                    if (!SkipPrice)
+                    {
+                        ProductPrice = HTMLParserUtil.GetContentAndSubstringInput("<del>", "</del>", Source, out Source);
+                        ProductDiscountPrice = HTMLParserUtil.GetContentAndSubstringInput("<span class=\"price\">", "</span>", Source, out Source);
+                    }
+
                     string ProductName = HTMLParserUtil.GetContentAndSubstringInput("<a class=\"product-title\" title=\"", "\" href=\"", Source, out Source, "", false);
                     string ProductURL = HTMLParserUtil.GetContentAndSubstringInput(" href=\"", "\">", Source, out Source);
                    
