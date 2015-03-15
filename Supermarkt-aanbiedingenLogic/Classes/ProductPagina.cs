@@ -13,6 +13,7 @@ namespace Supermarkt_aanbiedingenLogic
         public Supermarkt supermarkt { get; private set; }
         public string DiscountValid { get; private set; }
         public IList<Product> Producten { get; private set; }
+        public Product SelectedItem { get; set; }
 
         [JsonIgnore]
         public string ProductCountText

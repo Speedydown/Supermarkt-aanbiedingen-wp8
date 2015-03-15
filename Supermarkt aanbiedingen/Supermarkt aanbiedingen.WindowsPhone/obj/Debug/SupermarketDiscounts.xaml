@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="WhiteSmoke">
 
     <Grid x:Name="LayoutRoot">
 
@@ -26,13 +26,14 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        
+        <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" />
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProductPagina.ProductCountText}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="5" Grid.Row="0" Grid.RowSpan="3">
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Slogan}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="3">
         <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
         </Border>
-        <ListView x:ConnectionId='1' x:Name="ProductsLV" ItemsSource="{Binding ProductPagina.Producten}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True"                                 >
+        <ListView x:ConnectionId='1' x:Name="ProductsLV"                            ItemsSource="{Binding ProductPagina.Producten}" Margin="0,5,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True"                                 >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -40,11 +41,9 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="3">
+                    <Border BorderBrush="DarkBlue" Background="White" BorderThickness="0" Margin="5,7">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -54,8 +53,16 @@
                                 <ColumnDefinition Width="5"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120" Grid.Row="0" Grid.RowSpan="5"/>
-                            <TextBlock Text="{Binding Name}" Grid.Column="3" FontSize="22"/>
+                            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="70" Height="70" Grid.Row="0" Grid.RowSpan="5" VerticalAlignment="Top"/>
+                            <TextBlock Text="{Binding Name}" Grid.Column="2" FontSize="22" FontWeight="Bold" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="{Binding Description}" Grid.Column="2" Grid.Row="1" FontSize="17" TextWrapping="WrapWholeWords"/>
+                            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
+                                <TextBlock Visibility="{Binding PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                <TextBlock Visibility="{Binding PriceBlockVisibility}" FontWeight="Bold" Text="{Binding Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
+                            </StackPanel>
+
                         </Grid>
                     </Border>
                 </DataTemplate>

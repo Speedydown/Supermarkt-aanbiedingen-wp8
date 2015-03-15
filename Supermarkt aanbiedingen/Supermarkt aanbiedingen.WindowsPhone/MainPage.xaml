@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Supermarkt_aanbiedingenLogic.Controls"
-    Background="White">
+    Background="WhiteSmoke">
 
     <Grid x:Name="LayoutRoot">
         <Grid.ChildrenTransitions>
@@ -35,7 +35,7 @@
                                     </ListView.ItemContainerStyle>
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="0,0,0,10">
+                                            <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="0,0,0,10" Background="White">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="Auto"/>
@@ -71,7 +71,31 @@
                                 <TextBlock Grid.Row="3" Text="Een moment geduld AUB...." Foreground="DarkBlue" FontSize="14" HorizontalAlignment="Center"/>
                             </Grid>
                         </Grid>
-                        
+
+                    </DataTemplate>
+                </HubSection.ContentTemplate>
+            </HubSection>
+            <HubSection>
+                <HubSection.Header>
+                    <TextBlock x:Uid="Section2Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="populaire aanbiedingen:" Foreground="DarkBlue"/>
+                </HubSection.Header>
+                <HubSection.ContentTemplate>
+                    <DataTemplate>
+                        <Grid>
+
+                        </Grid>
+                    </DataTemplate>
+                </HubSection.ContentTemplate>
+            </HubSection>
+            <HubSection>
+                <HubSection.Header>
+                    <TextBlock x:Uid="Section3Header" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="boodschappenlijstjes" Foreground="DarkBlue"/>
+                </HubSection.Header>
+                <HubSection.ContentTemplate>
+                    <DataTemplate>
+                        <Grid>
+
+                        </Grid>
                     </DataTemplate>
                 </HubSection.ContentTemplate>
             </HubSection>

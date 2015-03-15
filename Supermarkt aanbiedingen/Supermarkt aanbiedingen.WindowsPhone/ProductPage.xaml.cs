@@ -8,7 +8,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
-using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -20,14 +19,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Supermarkt_aanbiedingen
 {
-    public sealed partial class SupermarketDiscounts : Page
+    public sealed partial class ProductPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Supermarkt supermarkt;
-        private static Product SelectedItem;
 
-        public SupermarketDiscounts()
+        public ProductPage()
         {
             this.InitializeComponent();
 
@@ -49,8 +47,7 @@ namespace Supermarkt_aanbiedingen
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
-
-            this.DataContext = supermarkt;
+            this.DataContext = supermarkt.ProductPagina.SelectedItem;
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -83,40 +80,5 @@ namespace Supermarkt_aanbiedingen
         }
 
         #endregion
-
-        private void ProductsLV_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            this.supermarkt.ProductPagina.SelectedItem = e.ClickedItem as Product;
-            SelectedItem = e.ClickedItem as Product;
-
-            if (!Frame.Navigate(typeof(ProductPage), this.supermarkt.Serialize()))
-            {
-
-            }
-        }
-
-        private async void ProductsLV_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (SelectedItem != null)
-            {
-                foreach (Product p in supermarkt.ProductPagina.Producten)
-                {
-                    if (p.URL == SelectedItem.URL)
-                    {
-                        supermarkt.ProductPagina.SelectedItem = p;
-                        SelectedItem = null;
-                        (sender as ListView).SelectedItem = p;
-                        break;
-                    }
-                }
-
-                (sender as ListView).ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
-
-                //Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                //() => (sender as ListView).ScrollIntoView(SelectedItem));
-            }
-
-            
-        }
     }
 }

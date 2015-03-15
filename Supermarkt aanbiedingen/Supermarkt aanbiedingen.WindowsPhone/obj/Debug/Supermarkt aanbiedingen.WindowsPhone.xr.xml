@@ -12,7 +12,11 @@
     <RootPropertyPathName Name="ProductPagina" />
     <RootPropertyPathName Name="Producten" />
     <RootPropertyPathName Name="Count" />
-    <RootPropertyPathName Name="ProductCountText" />
+    <RootPropertyPathName Name="DiscountPriceBlockVisiblity" />
+    <RootPropertyPathName Name="DiscountPrice" />
+    <RootPropertyPathName Name="PriceBlockVisibility" />
+    <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="Description" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -37,6 +41,7 @@
       <RootProperty Name="OpticalMarginAlignment" />
       <RootProperty Name="TextLineBounds" />
       <RootProperty Name="TextAlignment" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="HorizontalAlignment" />
@@ -56,6 +61,7 @@
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Margin" />
       <RootEvent Name="ItemClick" />
       <RootEvent Name="Loaded" />
     </RootType>
@@ -158,6 +164,7 @@
       <RootProperty Name="ChildrenTransitions" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="Background" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -204,6 +211,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ConfigureSupermarkets" />
     <RootType FullName="Windows.UI.Xaml.Controls.Hub">
@@ -215,6 +223,17 @@
       <RootProperty Name="ContentTemplate" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Fill" />
+    </RootType>
+    <RootType FullName="Supermarkt_aanbiedingen.ProductPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Children" />
+    </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.SupermarketDiscounts" />
   </Roots.RootTypes>
 </Roots>

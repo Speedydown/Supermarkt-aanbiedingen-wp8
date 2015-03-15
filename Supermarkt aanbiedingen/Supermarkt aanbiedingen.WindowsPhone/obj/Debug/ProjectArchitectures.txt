@@ -1,3 +1,3 @@
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\Supermarkt aanbiedingen.WindowsPhone.csproj;neutral
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\Supermarkt-aanbiedingenLogic.csproj;neutral
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\WebCrawlerTools\WebCrawlerTools.csproj;neutral
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\Supermarkt aanbiedingen.WindowsPhone.csproj;neutral
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\Supermarkt-aanbiedingenLogic.csproj;neutral
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\WebCrawlerTools\WebCrawlerTools.csproj;neutral
