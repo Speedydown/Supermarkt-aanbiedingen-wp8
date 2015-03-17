@@ -17,6 +17,7 @@ namespace Supermarkt_aanbiedingenLogic
         public string URL { get; private set; }
         public string Title { get; private set; }
         public string ImageURL { get; private set; }
+        [JsonIgnore]
         public string Slogan { get; private set; }
         public ProductPagina ProductPagina { get; private set; }
         private bool _SupermarketEnabled = false;
@@ -49,50 +50,6 @@ namespace Supermarkt_aanbiedingenLogic
             this.SetSlogan();
             this.SupermarketEnabled = false;
             this.ProductPagina = ProductPagina;
-        }
-
-        public IAsyncAction GetProductpagina()
-        {
-            return GetProductpaginaHelper().AsAsyncAction();
-        }
-
-        private async Task GetProductpaginaHelper()
-        {
-            this.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(this);
-        }
-
-        private void SetImageURL()
-        {
-            switch (this.Name)
-            {
-                case "Albert Heijn":
-                    this.ImageURL = "/Assets/AH.png";
-                    break;
-                case "Lidl":
-                    this.ImageURL = "/Assets/Lidl.png";
-                    break;
-                case "Aldi":
-                    this.ImageURL = "/Assets/Aldi.jpg";
-                    break;
-                case "Jumbo":
-                    this.ImageURL = "/Assets/Jumbo.jpg";
-                    break;
-                case "C1000":
-                    this.ImageURL = "/Assets/c1000.png";
-                    break;
-                case "Plus":
-                    this.ImageURL = "/Assets/Plus_supermarkt.jpg";
-                    break;
-                case "Dirk":
-                    this.ImageURL = "/Assets/dirkvandenbroek.png";
-                    break;
-                case "Albert Heijn XL":
-                    this.ImageURL = "/Assets/AHXL.png";
-                    break;
-                default:
-                    this.ImageURL = "/Assets/winkelkar.gif";
-                    break;
-            }
         }
 
         private void SetSlogan()
@@ -176,6 +133,50 @@ namespace Supermarkt_aanbiedingenLogic
                     break;
                 default:
                     this.Slogan = string.Empty;
+                    break;
+            }
+        }
+
+        public IAsyncAction GetProductpagina()
+        {
+            return GetProductpaginaHelper().AsAsyncAction();
+        }
+
+        private async Task GetProductpaginaHelper()
+        {
+            this.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(this);
+        }
+
+        private void SetImageURL()
+        {
+            switch (this.Name)
+            {
+                case "Albert Heijn":
+                    this.ImageURL = "/Assets/AH.png";
+                    break;
+                case "Lidl":
+                    this.ImageURL = "/Assets/Lidl.png";
+                    break;
+                case "Aldi":
+                    this.ImageURL = "/Assets/Aldi.jpg";
+                    break;
+                case "Jumbo":
+                    this.ImageURL = "/Assets/Jumbo.jpg";
+                    break;
+                case "C1000":
+                    this.ImageURL = "/Assets/c1000.png";
+                    break;
+                case "Plus":
+                    this.ImageURL = "/Assets/Plus_supermarkt.jpg";
+                    break;
+                case "Dirk":
+                    this.ImageURL = "/Assets/dirkvandenbroek.png";
+                    break;
+                case "Albert Heijn XL":
+                    this.ImageURL = "/Assets/AHXL.png";
+                    break;
+                default:
+                    this.ImageURL = "/Assets/winkelkar.gif";
                     break;
             }
         }

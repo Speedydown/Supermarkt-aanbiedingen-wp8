@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,7 @@ namespace Supermarkt_aanbiedingenLogic
 
         private static async Task<IList<Supermarkt>> GetAllSupermarketsHelper()
         {
-            string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.supermarktaanbiedingen.com/");
-            IList<Supermarkt> Supermarkets = SupermarketsParser.GetSupermarkets(PageSource);
-
-            return Supermarkets;
+            return JsonConvert.DeserializeObject<IList<Supermarkt>>(await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?Query=GetAllSupermarkets"));
         }
 
         public static IAsyncOperation<IList<Supermarkt>> GetSelectedSuperMarkets()
@@ -47,11 +45,7 @@ namespace Supermarkt_aanbiedingenLogic
 
         private static async Task<ProductPagina> GetDiscountsFromSupermarketHelper(Supermarkt supermarkt)
         {
-            bool DateUndetermined = supermarkt.URL.Contains("lidl");
-
-            string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.supermarktaanbiedingen.com" + supermarkt.URL);
-
-            return DiscountsFromSupermarketParser.GetProductPaginaFromSourceAndURL(PageSource, supermarkt, DateUndetermined);
+            return JsonConvert.DeserializeObject<ProductPagina>(await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?Query=GetDiscountsFromSupermarket&Supermarket=" + JsonConvert.SerializeObject(supermarkt)));
         }
     }
 }

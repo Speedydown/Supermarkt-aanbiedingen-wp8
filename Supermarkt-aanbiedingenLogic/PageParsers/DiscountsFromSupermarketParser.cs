@@ -13,22 +13,28 @@ namespace Supermarkt_aanbiedingenLogic
         public static ProductPagina GetProductPaginaFromSourceAndURL(string Source, Supermarkt supermarkt, bool DateIndetermined)
         {
             ProductPagina CurrentPage = null;
-
-            //Clear header
-            Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<h1 class=\"discount-title\">", Source));
-
-            string ValidUntil = HTMLParserUtil.GetContentAndSubstringInput("<small> - ", "</small>", Source, out Source);
-
-            if (DateIndetermined)
+            try
             {
-                ValidUntil = "Geen einddatum van de aanbiedingen bekend.";
+                //Clear header
+                Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<h1 class=\"discount-title\">", Source));
+
+                string ValidUntil = HTMLParserUtil.GetContentAndSubstringInput("<small> - ", "</small>", Source, out Source);
+
+                if (DateIndetermined)
+                {
+                    ValidUntil = "Geen einddatum van de aanbiedingen bekend.";
+                }
+
+                CurrentPage = new ProductPagina(ValidUntil, new List<Product>(), supermarkt);
+
+                GetProductsFromSource(Source, CurrentPage);
+
+                Debug.WriteLine(supermarkt.Name + ": " + (CurrentPage.Producten.Last() as Product).Name);
             }
-
-            CurrentPage = new ProductPagina(ValidUntil, new List<Product>(), supermarkt);
-
-            GetProductsFromSource(Source, CurrentPage);
-
-            Debug.WriteLine(supermarkt.Name + ": " + (CurrentPage.Producten.Last() as Product).Name);
+            catch (Exception e)
+            {
+                throw e;
+            }
 
             return CurrentPage;
         }

@@ -107,3 +107,8 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.g.cs
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.xaml
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\bin\Debug\ProductPage.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.g.i.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.g.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.xaml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.WindowsPhone\obj\Debug\ProductPage.xbf
