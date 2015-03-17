@@ -15,34 +15,27 @@ namespace WebCrawlerTools
 
         public static async Task<string> GetDataAsStringFromURL(string URL, Encoding encoding = null)
         {
-            string output = await Task<string>.Run(async () => 
+            if (encoding == null)
+            {
+                encoding = Encoding.UTF8;
+            }
+
+            string Output = string.Empty;
+
+            try
             {
 
-                if (encoding == null)
-                {
-                    encoding = Encoding.UTF8;
-                }
+                response = await client.GetAsync(new Uri(URL));
 
-                string Output = string.Empty;
+                var ByteArray = await response.Content.ReadAsByteArrayAsync();
+                Output = encoding.GetString(ByteArray, 0, ByteArray.Length);
+            }
+            catch (Exception)
+            {
 
-                try
-                {
+            }
 
-                    response = await client.GetAsync(new Uri(URL));
-
-                    var ByteArray = await response.Content.ReadAsByteArrayAsync();
-                    Output = encoding.GetString(ByteArray, 0, ByteArray.Length);
-                }
-                catch (Exception)
-                {
-
-                }
-
-                return Output;
-
-            });
-
-            return output;
+            return Output;
         }
     }
 }

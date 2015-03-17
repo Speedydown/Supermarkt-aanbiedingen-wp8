@@ -51,10 +51,6 @@
     <Compile Include="Classes\Supermarkt.cs" />
     <Compile Include="Classes\SupermarktItem.cs" />
     <Compile Include="GetSAData.cs" />
-    <Compile Include="PageParsers\DiscountsFromSupermarketParser.cs" />
-    <Compile Include="PageParsers\ProductPageParser.cs" />
-    <Compile Include="PageParsers\SupermarketsParser.cs" />
-    <Compile Include="PageParsers\PopularSuperMarketsParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

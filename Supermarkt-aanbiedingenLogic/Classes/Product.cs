@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
@@ -39,7 +40,9 @@ namespace Supermarkt_aanbiedingenLogic
             this.Quantity = Quantity;
             this.Price = WebUtility.HtmlDecode(Price);
             this.DiscountPrice = WebUtility.HtmlDecode(DiscountPrice);
-            this.Name = Name;
+            this.Name = WebUtility.HtmlDecode(Name);
+
+            Description = WebUtility.HtmlDecode(Description);
 
             try
             {
@@ -58,6 +61,13 @@ namespace Supermarkt_aanbiedingenLogic
             {
                 this.Description = Description;
             }
+
+            //this.Description = this.Description.Replace(",", "\n");
+            this.Description = string.Join(
+                             "\n",
+                             this.Description.Split('\n').Select(s => s.Trim()));
+
+
 
             this.URL = URL;
             this.ImageURL =  ImageURL;

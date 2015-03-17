@@ -47,7 +47,7 @@ namespace Supermarkt_aanbiedingen
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
-            this.DataContext = supermarkt.ProductPagina.SelectedItem;
+            this.DataContext = supermarkt;
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)

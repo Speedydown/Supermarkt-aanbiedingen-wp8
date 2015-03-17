@@ -22,20 +22,67 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
 
-        <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" />
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
-        <!--<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Slogan}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>-->
-        <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="3">
-            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
-        </Border>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" x:Name="ContentRoot" Margin="5,20" Background="White">
+            <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="1" />
+            <Rectangle Fill="White" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="1" />
+            <Rectangle Fill="WhiteSmoke" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Name}" FontSize="25" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Quantity}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <StackPanel Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
+                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
+            </StackPanel>
+            <Image Source="{Binding ProductPagina.SelectedItem.ImageURL}" Margin="5" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
+        </Grid>
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="5,20" Background="White" MinHeight="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Omschrijving:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="1" Text="{Binding ProductPagina.SelectedItem.Description}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,25" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="2" Text="Deze aanbieidng loopt van:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Text="{Binding ProductPagina.DiscountValid}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,25" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Text="Deze aanbieding is verkrijgbaar bij:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="5" Text="{Binding Name}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        </Grid>
 
+        <Grid Grid.Row="2" x:Name="ListRoot" Margin="5,20" Background="White" MinHeight="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox Grid.Row="1" ItemsSource="{Binding ProductPagina.Producten}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontWeight="Bold" Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
     </Grid>
 </Page>
