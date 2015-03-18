@@ -10,6 +10,7 @@
                 <ResourceDictionary x:Key="Default">
                     <SolidColorBrush x:Key="CheckBoxForegroundThemeBrush" Color="DarkBlue" />
                     <SolidColorBrush x:Key="CheckBoxPressedBackgroundThemeBrush" Color="Transparent" />
+                    <SolidColorBrush x:Key="ComboBoxBorderThemeBrush" Color="DarkBlue" />
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="DarkBlue"/>
                     </Style>

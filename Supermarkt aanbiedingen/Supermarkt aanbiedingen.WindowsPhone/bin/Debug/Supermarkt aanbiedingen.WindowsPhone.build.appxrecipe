@@ -57,6 +57,9 @@
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\AHXL.png">
       <PackagePath>Assets\AHXL.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\clipboard_todo_list_checkmark-512.png">
+      <PackagePath>Assets\clipboard_todo_list_checkmark-512.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\dirkvandenbroek.png">
       <PackagePath>Assets\dirkvandenbroek.png</PackagePath>
     </AppxPackagedFile>

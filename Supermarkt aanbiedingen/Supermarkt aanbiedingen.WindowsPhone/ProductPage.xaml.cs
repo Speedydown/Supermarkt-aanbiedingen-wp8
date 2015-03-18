@@ -44,10 +44,33 @@ namespace Supermarkt_aanbiedingen
             get { return this.defaultViewModel; }
         }
 
-        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            CountCombovox.ItemsSource = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[]).First();
+
             supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
             this.DataContext = supermarkt;
+
+            //GetBoodschappenlijstje
+            IList<BoodschappenLijstje> lijstjes = await BoodschappenLijstje.GetBoodschappenLijstjes();
+
+            foreach (BoodschappenLijstje b in lijstjes)
+            {
+                if (b.SupermarktNaam == supermarkt.Name)
+                {
+                    foreach (Product p in b.Producten)
+                    {
+                        if (p.Name == supermarkt.ProductPagina.SelectedItem.Name)
+                        {
+                            AddButton.IsEnabled = false;
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+            }
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -80,5 +103,12 @@ namespace Supermarkt_aanbiedingen
         }
 
         #endregion
+
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddButton.IsEnabled = false;
+            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt);
+        }
+
     }
 }

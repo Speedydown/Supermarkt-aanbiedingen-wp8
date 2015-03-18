@@ -49,7 +49,7 @@
             </StackPanel>
             <Image Source="{Binding ProductPagina.SelectedItem.ImageURL}" Margin="5" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
         </Grid>
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="5,20" Background="White" MinHeight="200">
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="5,20,5,0" Background="White" MinHeight="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -60,7 +60,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Omschrijving:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <TextBlock Grid.Row="1" Text="{Binding ProductPagina.SelectedItem.Description}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,25" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="2" Text="Deze aanbieidng loopt van:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="2" Text="Deze aanbieding loopt van:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <TextBlock Grid.Row="3" Text="{Binding ProductPagina.DiscountValid}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,25" VerticalAlignment="Top"/>
             <TextBlock Grid.Row="4" Text="Deze aanbieding is verkrijgbaar bij:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <TextBlock Grid.Row="5" Text="{Binding Name}" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
@@ -75,14 +75,26 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            <ComboBox Grid.Row="1" ItemsSource="{Binding ProductPagina.Producten}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="CountCombovox" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ProductPagina.Producten}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock FontWeight="Bold" Text="{Binding Name}"/>
+                        <TextBlock FontWeight="Bold" Text="{Binding}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <Button x:ConnectionId='1' x:Name="AddButton"  Grid.Row="1" Grid.Column="2"                         >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Assets/clipboard_todo_list_checkmark-512.png" Width="30" Height="30" />
+                    <TextBlock Margin="0, 3, 0 ,0" Text="Toevoegen"/>
+                </StackPanel>
+            </Button>
         </Grid>
     </Grid>
 </Page>
