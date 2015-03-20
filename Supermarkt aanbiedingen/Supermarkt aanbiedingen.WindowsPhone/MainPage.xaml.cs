@@ -143,5 +143,38 @@ namespace Supermarkt_aanbiedingen
 
             }
         }
+
+        private async void BLListview_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as ListView).ItemsSource = await BoodschappenLijstje.GetBoodschappenLijstjes();
+
+            if (((sender as ListView).ItemsSource as List<BoodschappenLijstje>).Count != 0)
+            {
+                (sender as ListView).Visibility = Windows.UI.Xaml.Visibility.Visible;
+
+                foreach (UIElement u in (((sender as ListView).Parent as Grid).Parent as Grid).Children)
+                {
+                    if ((u as Grid).Name == "NoItemsGrid")
+                    {
+                        (u as Grid).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    }
+                }
+            }
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrivacyPolicyButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

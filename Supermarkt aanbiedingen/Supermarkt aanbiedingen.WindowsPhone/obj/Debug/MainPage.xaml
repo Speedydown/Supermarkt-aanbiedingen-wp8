@@ -27,7 +27,7 @@
                     <DataTemplate>
                         <Grid>
                             <Grid x:Name="Content" Visibility="Collapsed">
-                                <ListView x:ConnectionId='1' x:Name="PopularSupermarketsLV"                                                                                   IsItemClickEnabled="True">
+                                <ListView x:ConnectionId='2' x:Name="PopularSupermarketsLV"                                                                                   IsItemClickEnabled="True">
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="ListViewItem">
                                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -94,7 +94,30 @@
                 <HubSection.ContentTemplate>
                     <DataTemplate>
                         <Grid>
-
+                            <Grid>
+                                <ListView x:ConnectionId='1' Visibility="Collapsed" x:Name="BLListview"                            IsItemClickEnabled="True">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Background="White" Margin="0,5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="{Binding SupermarktNaam}" FontWeight="Bold" FontSize="21" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                                <TextBlock Text="{Binding LijstText}" HorizontalAlignment="Left" FontSize="18" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                            <Grid x:Name="NoItemsGrid">
+                                <TextBlock Foreground="DarkBlue" TextAlignment="Center" Text="Voeg items toe aan uw boodschappenlijstje om ze hier te zien" TextWrapping="WrapWholeWords" FontWeight="Bold" FontSize="21" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,0,0,0" />
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </HubSection.ContentTemplate>

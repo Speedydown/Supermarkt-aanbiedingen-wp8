@@ -11,6 +11,9 @@ namespace Supermarkt_aanbiedingenLogic
 {
     public static class GetSAData
     {
+        private const string Host = "http://speedydown-001-site2.smarterasp.net";
+       // private const string Host = "http://localhost:43112/";
+
         public static IAsyncOperation<IList<Supermarkt>> GetAllSupermarkets()
         {
             return GetAllSupermarketsHelper().AsAsyncOperation();
@@ -18,7 +21,7 @@ namespace Supermarkt_aanbiedingenLogic
 
         private static async Task<IList<Supermarkt>> GetAllSupermarketsHelper()
         {
-            return JsonConvert.DeserializeObject<IList<Supermarkt>>(await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?Query=GetAllSupermarkets"));
+            return JsonConvert.DeserializeObject<IList<Supermarkt>>(await HTTPGetUtil.GetDataAsStringFromURL(Host + "/api.ashx?Query=GetAllSupermarkets"));
         }
 
         public static IAsyncOperation<IList<Supermarkt>> GetSelectedSuperMarkets()
@@ -47,7 +50,7 @@ namespace Supermarkt_aanbiedingenLogic
 
         private static async Task<ProductPagina> GetDiscountsFromSupermarketHelper(Supermarkt supermarkt)
         {
-            return JsonConvert.DeserializeObject<ProductPagina>(await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?Query=GetDiscountsFromSupermarket&Supermarket=" + JsonConvert.SerializeObject(supermarkt)));
+            return JsonConvert.DeserializeObject<ProductPagina>(await HTTPGetUtil.GetDataAsStringFromURL(Host + "/api.ashx?Query=GetDiscountsFromSupermarket&Supermarket=" + JsonConvert.SerializeObject(supermarkt)));
         }
 
         public static IAsyncOperation<IList<Supermarkt>> GetDiscountsFromSupermarkets(IList<Supermarkt> supermarkts)
@@ -69,7 +72,7 @@ namespace Supermarkt_aanbiedingenLogic
                     NumberofSupermarketsInQuery = supermarkts.Count - CompletedSupermarkets.Count;
                 }
 
-                string input = await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?Query=GetDiscountsFromSupermarkets&Supermarkets=" + JsonConvert.SerializeObject((supermarkts as List<Supermarkt>).GetRange(Currentpos, NumberofSupermarketsInQuery)));
+                string input = await HTTPGetUtil.GetDataAsStringFromURL(Host + "/api.ashx?Query=GetDiscountsFromSupermarkets&Supermarkets=" + JsonConvert.SerializeObject((supermarkts as List<Supermarkt>).GetRange(Currentpos, NumberofSupermarketsInQuery)));
                 CompletedSupermarkets.AddRange(JsonConvert.DeserializeObject<List<Supermarkt>>(input));
                 Currentpos += NumberofSupermarketsInQuery;
             }

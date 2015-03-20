@@ -38,12 +38,12 @@ namespace Supermarkt_aanbiedingenLogic
             return _BoodschappenLijstjes;
         }
 
-        public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt)
+        public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt, int Count)
         {
-            return AddProductToBoodschappenLijstjeHelper(supermarkt).AsAsyncAction();
+            return AddProductToBoodschappenLijstjeHelper(supermarkt, Count).AsAsyncAction();
         }
 
-        private static async Task AddProductToBoodschappenLijstjeHelper(Supermarkt supermarkt)
+        private static async Task AddProductToBoodschappenLijstjeHelper(Supermarkt supermarkt, int Count)
         {
             if (supermarkt.ProductPagina.SelectedItem == null)
             {
@@ -68,7 +68,26 @@ namespace Supermarkt_aanbiedingenLogic
                 Boodschappenlijstjes.Add(BoodschappenLijstje);
             }
 
-            BoodschappenLijstje.Producten.Add(supermarkt.ProductPagina.SelectedItem);
+            foreach (BoodschappenlijstjeItem bi in BoodschappenLijstje.Producten)
+            {
+                if (bi.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
+                {
+                    BoodschappenLijstje.Producten.Remove(bi);
+                    break;
+                }
+            }
+
+            if (Count > 0)
+            {
+                BoodschappenLijstje.Producten.Add(new BoodschappenlijstjeItem(Count, supermarkt.ProductPagina.SelectedItem));
+            }
+            else
+            {
+                if (BoodschappenLijstje.Producten.Count == 0)
+                {
+                    Boodschappenlijstjes.Remove(BoodschappenLijstje);
+                }
+            }
 
             try
             {
@@ -90,12 +109,27 @@ namespace Supermarkt_aanbiedingenLogic
         }
 
         public string SupermarktNaam { get; private set; }
-        public IList<Product> Producten { get; private set; }
+        public IList<BoodschappenlijstjeItem> Producten { get; private set; }
+
+        public string LijstText
+        {
+            get
+            {
+                if (this.Producten.Count == 1)
+                {
+                    return this.Producten.Count + " product";
+                }
+                else
+                {
+                    return this.Producten.Count + " producten";
+                }
+            }
+    }
 
         public BoodschappenLijstje(string SupermarktNaam)
         {
             this.SupermarktNaam = SupermarktNaam;
-            this.Producten = new List<Product>();
+            this.Producten = new List<BoodschappenlijstjeItem>();
 
             //alleen naam opslaan
         }

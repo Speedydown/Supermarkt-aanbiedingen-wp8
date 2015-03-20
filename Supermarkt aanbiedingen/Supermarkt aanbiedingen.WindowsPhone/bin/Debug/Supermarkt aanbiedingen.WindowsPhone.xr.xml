@@ -9,6 +9,8 @@
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="ImageURL" />
     <RootPropertyPathName Name="SupermarketEnabled" />
+    <RootPropertyPathName Name="LijstText" />
+    <RootPropertyPathName Name="SupermarktNaam" />
     <RootPropertyPathName Name="ProductPagina" />
     <RootPropertyPathName Name="Producten" />
     <RootPropertyPathName Name="Count" />
@@ -50,6 +52,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Content" />
       <RootProperty Name="IsEnabled" />
+      <RootProperty Name="Width" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -63,6 +66,7 @@
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="Margin" />
       <RootEvent Name="ItemClick" />
@@ -230,6 +234,7 @@
     <RootType FullName="Supermarkt_aanbiedingen.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Width" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">

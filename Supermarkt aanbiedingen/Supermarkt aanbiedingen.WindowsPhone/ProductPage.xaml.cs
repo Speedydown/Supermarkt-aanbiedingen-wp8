@@ -46,8 +46,8 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            CountCombovox.ItemsSource = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[]).First();
+            CountCombovox.ItemsSource = new string[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[1];
 
             supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
             this.DataContext = supermarkt;
@@ -59,12 +59,13 @@ namespace Supermarkt_aanbiedingen
             {
                 if (b.SupermarktNaam == supermarkt.Name)
                 {
-                    foreach (Product p in b.Producten)
+                    foreach (BoodschappenlijstjeItem BItem in b.Producten)
                     {
-                        if (p.Name == supermarkt.ProductPagina.SelectedItem.Name)
+                        if (BItem.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
                         {
-                            AddButton.IsEnabled = false;
-                            break;
+                            AddButtonText.Text = "Wijzig";
+                            BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
+                            CountCombovox.SelectedIndex = BItem.Count;
                         }
                     }
 
@@ -106,8 +107,28 @@ namespace Supermarkt_aanbiedingen
 
         private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddButton.IsEnabled = false;
-            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt);
+            if (AddButtonText.Text != "Wijzig")
+            {
+                AddButtonText.Text = "Wijzig";
+            }
+            else
+            {
+                if (CountCombovox.SelectedIndex == 0)
+                {
+                    StatusTextblock.Text = "Verwijderd!";
+                    AddButtonText.Text = "Toevoegen";
+                    BoodschappenlijstTextblock.Text = "Voeg toe aan boodschappenlijst:";
+                }
+                else
+                {
+                    StatusTextblock.Text = "Aantal gewijzigd!";
+                }
+            }
+
+            
+            BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
+            StatusTextblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, CountCombovox.SelectedIndex);
         }
 
     }

@@ -94,7 +94,30 @@
                 <HubSection.ContentTemplate>
                     <DataTemplate>
                         <Grid>
-
+                            <Grid>
+                                <ListView Visibility="Collapsed" x:Name="BLListview" Loaded="BLListview_Loaded" IsItemClickEnabled="True">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Background="White" Margin="0,5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="{Binding SupermarktNaam}" FontWeight="Bold" FontSize="21" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                                <TextBlock Text="{Binding LijstText}" HorizontalAlignment="Left" FontSize="18" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                            <Grid x:Name="NoItemsGrid">
+                                <TextBlock Foreground="DarkBlue" TextAlignment="Center" Text="Voeg items toe aan uw boodschappenlijstje om ze hier te zien" TextWrapping="WrapWholeWords" FontWeight="Bold" FontSize="21" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,0,0,0" />
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </HubSection.ContentTemplate>
@@ -102,4 +125,13 @@
         </Hub>
 
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#FFDCE7F3" Foreground="DarkBlue">
+            <AppBarButton x:Uid="SettingsButton" x:Name="SettingsButton" Label="Instellingen" Icon="Setting" Click="SettingsButton_Click" />
+            <AppBarButton x:Uid="SearchButton" x:Name="SearchButton" Label="Zoeken" Icon="Find" Click="SearchButton_Click"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="PrivacyPolicyButton" x:Name="PrivacyPolicyButton" Label="Privacy policy"  Click="PrivacyPolicyButton_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
