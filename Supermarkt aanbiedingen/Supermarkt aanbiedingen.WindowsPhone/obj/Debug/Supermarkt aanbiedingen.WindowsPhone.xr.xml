@@ -22,6 +22,8 @@
     <RootPropertyPathName Name="PriceBlockVisibility" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Quantity" />
+    <RootPropertyPathName Name="SupermarktItem" />
+    <RootPropertyPathName Name="supermarkt" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -43,16 +45,19 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="OpticalMarginAlignment" />
       <RootProperty Name="TextLineBounds" />
+      <RootProperty Name="OpticalMarginAlignment" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="CharacterSpacing" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Content" />
       <RootProperty Name="IsEnabled" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -200,6 +205,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
+      <RootProperty Name="BottomAppBar" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
@@ -223,18 +229,27 @@
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ConfigureSupermarkets" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Hub">
-      <RootProperty Name="Header" />
-      <RootProperty Name="Sections" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
+      <RootProperty Name="Items" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.HubSection">
+    <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
       <RootProperty Name="Header" />
-      <RootProperty Name="ContentTemplate" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="PrimaryCommands" />
+      <RootProperty Name="SecondaryCommands" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Label" />
+      <RootProperty Name="Icon" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Width" />
+      <RootProperty Name="Resources" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
@@ -248,6 +263,8 @@
       <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ProductPage" />
+    <RootType FullName="Supermarkt_aanbiedingen.SearchPage" />
+    <RootType FullName="Supermarkt_aanbiedingen.ShoppingList" />
     <RootType FullName="Supermarkt_aanbiedingen.SupermarketDiscounts" />
   </Roots.RootTypes>
 </Roots>

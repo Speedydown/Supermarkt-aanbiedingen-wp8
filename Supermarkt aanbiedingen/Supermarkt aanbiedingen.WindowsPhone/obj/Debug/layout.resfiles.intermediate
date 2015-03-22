@@ -3,10 +3,12 @@ Assets\AHXL.png
 Assets\Aldi.jpg
 Assets\c1000.png
 Assets\clipboard_todo_list_checkmark-512.png
+Assets\DeleteIcon.png
 Assets\dirkvandenbroek.png
 Assets\emte.gif
 Assets\jumbo.jpg
 Assets\Lidl.png
+Assets\manmetkar.png
 Assets\Plus_supermarkt.jpg
 Assets\winkelkar.gif
 Common\ReadMe.txt
@@ -19,5 +21,7 @@ App.xbf
 ConfigXaml\ConfigureSupermarkets.xbf
 MainPage.xbf
 ProductPage.xbf
+SearchPage.xbf
+ShoppingList.xbf
 SupermarketDiscounts.xbf
 Supermarkt aanbiedingen.WindowsPhone.xr.xml

@@ -76,13 +76,19 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="BoodschappenlijstTextblock" Grid.Row="0" Grid.ColumnSpan="3" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="CountCombovox" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ProductPagina.Producten}" Width="150">
+            <TextBlock x:Name="BoodschappenlijstTextblock" Grid.Row="0" Grid.ColumnSpan="5" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="CountCombovox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <ComboBox.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                </ComboBox.Resources>
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock FontWeight="Bold" Text="{Binding}"/>
@@ -93,6 +99,12 @@
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Assets/clipboard_todo_list_checkmark-512.png" Width="30" Height="30" />
                     <TextBlock x:Name="AddButtonText" Margin="0, 3, 0 ,0" Text="Toevoegen"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="DeleteButton"  Grid.Row="1" Grid.Column="4" Click="DeleteButton_Click" Width="50" Visibility="Collapsed" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Assets/DeleteIcon.png" Width="30" Height="30" />
+                    <TextBlock x:Name="DeleteButtonText" Margin="0, 0, 0 ,0" Text=""/>
                 </StackPanel>
             </Button>
             <TextBlock x:Name="StatusTextblock" Grid.Row="2" Grid.ColumnSpan="3" Text="Toegevoegd aan uw boodschappenlijst!" FontSize="14" Visibility="Collapsed" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>

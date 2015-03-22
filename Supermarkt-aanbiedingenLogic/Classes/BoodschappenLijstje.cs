@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ using Windows.Storage;
 
 namespace Supermarkt_aanbiedingenLogic
 {
-    public sealed class BoodschappenLijstje
+    public sealed class BoodschappenLijstje : INotifyPropertyChanged
     {
         private static IList<BoodschappenLijstje> _BoodschappenLijstjes = null;
         private const string FileName = "BoodschappenLijstjes.json";
@@ -108,8 +110,65 @@ namespace Supermarkt_aanbiedingenLogic
             return;
         }
 
+        public static IAsyncAction DeleteProductFromBoodschappenLijstje(Supermarkt supermarkt, Product product)
+        {
+            return DeleteProductFromBoodschappenLijstjeHelper(supermarkt, product).AsAsyncAction();
+        }
+
+        private static async Task DeleteProductFromBoodschappenLijstjeHelper(Supermarkt supermarkt, Product product)
+        {
+            IList<BoodschappenLijstje> Boodschappenlijstjes = await GetBoodschappenLijstjes();
+            BoodschappenLijstje BoodschappenLijstje = null;
+
+            foreach (BoodschappenLijstje b in Boodschappenlijstjes)
+            {
+                if (b.SupermarktNaam == supermarkt.Name)
+                {
+                    BoodschappenLijstje = b;
+                    break;
+                }
+            }
+
+            foreach (BoodschappenlijstjeItem bi in BoodschappenLijstje.Producten)
+            {
+                if (bi.SupermarktItem.Name == product.Name)
+                {
+                    BoodschappenLijstje.Producten.Remove(bi);
+                    break;
+                }
+            }
+
+            if (BoodschappenLijstje.Producten.Count == 0)
+            {
+                Boodschappenlijstjes.Remove(BoodschappenLijstje);
+            }
+
+            BoodschappenLijstje.Notify();
+
+            try
+            {
+                StorageFile file = await localFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
+
+                if (file != null)
+                {
+                    string JsonString = JsonConvert.SerializeObject(await GetBoodschappenLijstjes());
+
+                    await FileIO.WriteTextAsync(file, JsonString);
+                }
+            }
+            catch (Exception)
+            {
+                //Could not save? OHOH
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string SupermarktNaam { get; private set; }
+
         public IList<BoodschappenlijstjeItem> Producten { get; private set; }
+        public Supermarkt supermarkt { get; set; }
+        public Product SelectedItem { get; set; }
 
         public string LijstText
         {
@@ -124,14 +183,38 @@ namespace Supermarkt_aanbiedingenLogic
                     return this.Producten.Count + " producten";
                 }
             }
-    }
+        }
 
         public BoodschappenLijstje(string SupermarktNaam)
         {
             this.SupermarktNaam = SupermarktNaam;
-            this.Producten = new List<BoodschappenlijstjeItem>();
-
-            //alleen naam opslaan
+            this.Producten = new ObservableCollection<BoodschappenlijstjeItem>();
         }
+
+        public void Notify()
+        {
+            OnPropertyChanged("Producten");
+            OnPropertyChanged("LijstText");
+        }
+
+        public string Serialize()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        public static BoodschappenLijstje Deserialize(string Input)
+        {
+            return JsonConvert.DeserializeObject<BoodschappenLijstje>(Input);
+        }
+
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
     }
 }

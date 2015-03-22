@@ -50,10 +50,12 @@
     <Compile Include="Classes\Categorie.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductPagina.cs" />
+    <Compile Include="Classes\SupermarketSearchResult.cs" />
     <Compile Include="Classes\Supermarkt.cs" />
     <Compile Include="Classes\SupermarktItem.cs" />
     <Compile Include="GetSAData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

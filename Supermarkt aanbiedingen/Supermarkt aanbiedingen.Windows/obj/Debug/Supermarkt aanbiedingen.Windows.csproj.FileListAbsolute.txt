@@ -3,8 +3,6 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.xr.xml
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.pdb
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe.CodeAnalysisLog.xml
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe.lastcodeanalysissucceeded
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\resources.pri
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\AppxManifest.xml
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.build.appxrecipe
@@ -79,3 +77,18 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedin
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\WebCrawlerTools.pri
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.csprojResolveAssemblyReference.cache
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.csproj.GenerateResource.Cache
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\ConfigXaml\ConfigureSupermarkets.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt_aanbiedingenLogic.winmd
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\WebCrawlerTools.dll
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt_aanbiedingenLogic.pdb
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt_aanbiedingenLogic.pri
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\WebCrawlerTools.pdb
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\WebCrawlerTools.pri
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.csprojResolveAssemblyReference.cache
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ConfigXaml\ConfigureSupermarkets.g.i.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ConfigXaml\ConfigureSupermarkets.g.cs
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ConfigXaml\ConfigureSupermarkets.xaml
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\ConfigXaml\ConfigureSupermarkets.xbf
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\Supermarkt aanbiedingen.Windows.csproj.GenerateResource.Cache

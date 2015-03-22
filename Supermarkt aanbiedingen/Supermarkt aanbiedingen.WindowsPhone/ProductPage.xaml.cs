@@ -46,8 +46,8 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            CountCombovox.ItemsSource = new string[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[1];
+            CountCombovox.ItemsSource = new string[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[0];
 
             supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
             this.DataContext = supermarkt;
@@ -63,9 +63,10 @@ namespace Supermarkt_aanbiedingen
                     {
                         if (BItem.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
                         {
+                            DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
                             AddButtonText.Text = "Wijzig";
                             BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
-                            CountCombovox.SelectedIndex = BItem.Count;
+                            CountCombovox.SelectedIndex = BItem.Count - 1;
                         }
                     }
 
@@ -110,6 +111,7 @@ namespace Supermarkt_aanbiedingen
             if (AddButtonText.Text != "Wijzig")
             {
                 AddButtonText.Text = "Wijzig";
+                DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
             else
             {
@@ -128,7 +130,17 @@ namespace Supermarkt_aanbiedingen
             
             BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
             StatusTextblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, CountCombovox.SelectedIndex);
+            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, CountCombovox.SelectedIndex + 1);
+        }
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            BoodschappenlijstTextblock.Text = "Voeg toe aan boodschappenlijst:";
+            AddButtonText.Text = "Toevoegen";
+            StatusTextblock.Text = "Verwijderd!";
+            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, 0);
+            StatusTextblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
     }

@@ -27,10 +27,12 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Aldi.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\AHXL.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\clipboard_todo_list_checkmark-512.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DeleteIcon.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\dirkvandenbroek.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\emte.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\jumbo.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Lidl.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\manmetkar.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Plus_supermarkt.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\winkelkar.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Common\ReadMe.txt" />
