@@ -45,8 +45,8 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="25"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox x:Name="Checked" Margin="0,-15,0,0" IsChecked="{Binding SupermarketEnabled}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Left" Foreground="DarkBlue" VerticalAlignment="Top" Canvas.ZIndex="255"/>
-                                
+                                <CheckBox x:Name="Checked" Visibility="Collapsed" Margin="0,-15,0,0" IsChecked="{Binding SupermarketEnabled}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Left" Foreground="DarkBlue" VerticalAlignment="Top" Canvas.ZIndex="255"/>
+                                <Rectangle Fill="{Binding SelectColor}" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3"/>
                                 <Image Source="{Binding ImageURL}" Stretch="Fill" Width="60" Height="60" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                                 <TextBlock Text="{Binding Name}" Foreground="DarkBlue" FontWeight="Bold" FontSize="19" Grid.Row="0" Grid.Column="3"/>
                                 <TextBlock Text="{Binding Slogan}" Foreground="DarkBlue" FontSize="15" Grid.Row="1" Grid.Column="3" TextWrapping="WrapWholeWords" VerticalAlignment="Top" Margin="0, -8,0,0"/>

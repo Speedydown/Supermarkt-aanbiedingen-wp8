@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Storage;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace Supermarkt_aanbiedingenLogic
@@ -32,6 +34,22 @@ namespace Supermarkt_aanbiedingenLogic
             {
                 _SupermarketEnabled = value;
                 OnPropertyChanged("SupermarketEnabled");
+                OnPropertyChanged("SelectColor");
+            }
+        }
+        [JsonIgnore]
+        public SolidColorBrush SelectColor
+        {
+            get
+            {
+                if (SupermarketEnabled)
+                {
+                    return new SolidColorBrush(Colors.LightGreen);
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.White);
+                }
             }
         }
 
@@ -92,13 +110,13 @@ namespace Supermarkt_aanbiedingenLogic
                 case "Dirk":
                     this.Slogan = "Blijf je verbazen";
                     break;
-                case "Emté":
+                case "EMTE":
                     this.Slogan = "De lekkerste supermarkt van Nederland";
                     break;
                 case "Hoogvliet":
                     this.Slogan = "Bewezen de goedkoopste!";
                     break;
-                case "Jan linders":
+                case "Jan Linders":
                     this.Slogan = "Het voordeel van het zuiden!";
                     break;
                 case "Jumbo":

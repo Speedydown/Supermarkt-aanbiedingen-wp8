@@ -8,6 +8,7 @@
     <RootPropertyPathName Name="Slogan" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="ImageURL" />
+    <RootPropertyPathName Name="SelectColor" />
     <RootPropertyPathName Name="SupermarketEnabled" />
     <RootPropertyPathName Name="LijstText" />
     <RootPropertyPathName Name="SupermarktNaam" />
@@ -80,6 +81,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+      <RootProperty Name="Visibility" />
       <RootProperty Name="Margin" />
       <RootProperty Name="IsChecked" />
       <RootProperty Name="HorizontalAlignment" />
@@ -222,6 +224,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Fill" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
@@ -268,9 +273,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Background" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
-      <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ProductPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
