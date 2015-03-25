@@ -49,7 +49,16 @@ namespace Supermarkt_aanbiedingen
         {
             Supermarkets = (List<Supermarkt>)await GetSAData.GetAllSupermarkets();
 
-            IList<Supermarkt> AanwezigeSupermarkten = await GetSAData.GetSelectedSuperMarkets();
+            IList<Supermarkt> AanwezigeSupermarkten = null;
+
+            try
+            {
+                AanwezigeSupermarkten = await GetSAData.GetSelectedSuperMarkets();
+            }
+            catch
+            {
+
+            }
 
             if (AanwezigeSupermarkten != null)
             {
