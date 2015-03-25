@@ -17,14 +17,13 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
-
 namespace Supermarkt_aanbiedingen
 {
     public sealed partial class SearchPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        IList<SupermarketSearchResult> searchresult = new List<SupermarketSearchResult>();
 
         public SearchPage()
         {
@@ -47,8 +46,7 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            IList<Supermarkt> supermarkten = await GetSAData.GetSelectedSuperMarkets();
-            IList<SupermarketSearchResult> searchresult = SearchHandler.SearchForProductenInDiscounts(supermarkten, "krat");
+            SearchTextbox.Focus(Windows.UI.Xaml.FocusState.Pointer);
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -81,5 +79,69 @@ namespace Supermarkt_aanbiedingen
         }
 
         #endregion
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Product p = (Product)e.ClickedItem;
+
+            foreach (SupermarketSearchResult ssr in this.searchresult)
+            {
+                foreach (Product product in ssr.producten)
+                {
+                    if (p == product)
+                    {
+                        ssr.supermarkt.ProductPagina.SelectedItem = product;
+
+                        if (!Frame.Navigate(typeof(ProductPage), ssr.supermarkt.Serialize()))
+                        {
+
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+        private void SearchTextbox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                this.Search();
+            }
+        }
+
+        private async void Search()
+        {
+            SearchTextbox.IsEnabled = false;
+            SearchButton.IsEnabled = false;
+
+            IList<Supermarkt> supermarkten = await GetSAData.GetSelectedSuperMarkets();
+            searchresult = SearchHandler.SearchForProductenInDiscounts(supermarkten, SearchTextbox.Text);
+
+
+            if (searchresult.Count > 0)
+            {
+                NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+                else
+                {
+                    NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                }
+
+            this.DataContext = searchresult;
+
+
+
+
+            SearchTextbox.IsEnabled = true;
+            SearchButton.IsEnabled = true;
+            SearchButton.Focus(Windows.UI.Xaml.FocusState.Pointer);
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Search();
+        }
     }
 }

@@ -175,11 +175,18 @@ namespace Supermarkt_aanbiedingen
         {
             if (ProductTextbox.Text.Length > 2)
             {
-                await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
-                this.ShowAndHideAddProduct();
+                try
+                {
+                    await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
+                    this.ShowAndHideAddProduct();
 
-                this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
-                this.DataContext = this.boodschappenlijstje;
+                    this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
+                    this.DataContext = this.boodschappenlijstje;
+                }
+                catch
+                {
+
+                }
             }
             else
             {
@@ -204,6 +211,7 @@ namespace Supermarkt_aanbiedingen
 
             ShowAddButton.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Collapsed : Windows.UI.Xaml.Visibility.Visible;
             HideAddButton.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Visible : Windows.UI.Xaml.Visibility.Collapsed;
+            AddProductButtonAppbar.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Visible : Windows.UI.Xaml.Visibility.Collapsed;
             ProductTextbox.Text = "";
         }
 
@@ -212,6 +220,22 @@ namespace Supermarkt_aanbiedingen
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
                 CountCombovox.Focus(Windows.UI.Xaml.FocusState.Pointer);
+            }
+        }
+
+        private async void AddProductButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (ProductTextbox.Text.Length > 2)
+            {
+                await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
+                this.ShowAndHideAddProduct();
+
+                this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
+                this.DataContext = this.boodschappenlijstje;
+            }
+            else
+            {
+                ProductTextbox.Text = "";
             }
         }
     }

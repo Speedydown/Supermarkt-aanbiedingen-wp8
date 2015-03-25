@@ -151,6 +151,9 @@ namespace Supermarkt_aanbiedingenLogic
         {
             switch (this.Name)
             {
+                case "Agrimarkt":
+                    this.ImageURL = "/Assets/Agrimarkt.gif";
+                    break;
                 case "Albert Heijn":
                     this.ImageURL = "/Assets/AH.png";
                     break;
@@ -160,17 +163,65 @@ namespace Supermarkt_aanbiedingenLogic
                 case "Aldi":
                     this.ImageURL = "/Assets/Aldi.jpg";
                     break;
+                case "Attent":
+                    this.ImageURL = "/Assets/Attent.png";
+                    break;
+                case "Boni":
+                    this.ImageURL = "/Assets/Boni.png";
+                    break;
                 case "Jumbo":
                     this.ImageURL = "/Assets/Jumbo.jpg";
                     break;
                 case "C1000":
                     this.ImageURL = "/Assets/c1000.png";
                     break;
+                case "Coop":
+                    this.ImageURL = "/Assets/coop.jpg";
+                    break;
+                case "Supercoop":
+                    this.ImageURL = "/Assets/coop.jpg";
+                    break;
+                case "Dagwinkel":
+                    this.ImageURL = "/Assets/dagwinkel.png";
+                    break;
+                case "Deen":
+                    this.ImageURL = "/Assets/deen.png";
+                    break;
+                case "Dekamarkt":
+                    this.ImageURL = "/Assets/Deka.jpg";
+                    break;
+                case "EMTE":
+                    this.ImageURL = "/Assets/emte.gif";
+                    break;
                 case "Plus":
                     this.ImageURL = "/Assets/Plus_supermarkt.jpg";
                     break;
                 case "Dirk":
                     this.ImageURL = "/Assets/dirkvandenbroek.png";
+                    break;
+                case "Hoogvliet":
+                    this.ImageURL = "/Assets/Hoogvliet.jpg";
+                    break;
+                case "Jan Linders":
+                    this.ImageURL = "/Assets/JanLinders.gif";
+                    break;
+                case "MCD":
+                    this.ImageURL = "/Assets/MCD.gif";
+                    break;
+                case "Nettorama":
+                    this.ImageURL = "/Assets/nettorama.jpg";
+                    break;
+                case "Poiesz":
+                    this.ImageURL = "/Assets/poeisz.png";
+                    break;
+                case "Spar":
+                    this.ImageURL = "/Assets/Spar.jpg";
+                    break;
+                case "Troefmarkt":
+                    this.ImageURL = "/Assets/troefmarkt.png";
+                    break;
+                case "Vomar":
+                    this.ImageURL = "/Assets/Vomar.png";
                     break;
                 case "Albert Heijn XL":
                     this.ImageURL = "/Assets/AHXL.png";
@@ -218,7 +269,7 @@ namespace Supermarkt_aanbiedingenLogic
 
                 if (file != null)
                 {
-                    string JsonString =  JsonConvert.SerializeObject(Supermarkets);
+                    string JsonString = JsonConvert.SerializeObject(Supermarkets);
 
                     await FileIO.WriteTextAsync(file, JsonString);
                 }

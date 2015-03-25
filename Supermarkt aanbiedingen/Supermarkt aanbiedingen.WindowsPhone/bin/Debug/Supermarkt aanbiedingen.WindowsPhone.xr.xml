@@ -22,8 +22,9 @@
     <RootPropertyPathName Name="PriceBlockVisibility" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Quantity" />
-    <RootPropertyPathName Name="SupermarktItem" />
+    <RootPropertyPathName Name="producten" />
     <RootPropertyPathName Name="supermarkt" />
+    <RootPropertyPathName Name="SupermarktItem" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -49,8 +50,6 @@
       <RootProperty Name="OpticalMarginAlignment" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Visibility" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="CharacterSpacing" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="HorizontalAlignment" />
@@ -181,6 +180,7 @@
       <RootProperty Name="Background" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -267,18 +267,19 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ProductPage" />
-    <RootType FullName="Supermarkt_aanbiedingen.SearchPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="IsSpellCheckEnabled" />
       <RootProperty Name="Language" />
       <RootEvent Name="KeyDown" />
     </RootType>
+    <RootType FullName="Supermarkt_aanbiedingen.SearchPage" />
     <RootType FullName="Supermarkt_aanbiedingen.ShoppingList" />
     <RootType FullName="Supermarkt_aanbiedingen.SupermarketDiscounts" />
   </Roots.RootTypes>

@@ -22,15 +22,73 @@
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="page title" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        <StackPanel Background="White" Grid.Row="0" Margin="5,0,5,10">
+            <TextBox x:ConnectionId='2' Grid.Row="2" Grid.ColumnSpan="4" x:Name="SearchTextbox"                                  PlaceholderText="Zoeken..." IsSpellCheckEnabled="True" Language="NL-nl"  />
         </StackPanel>
 
-        <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+        
+        <ListView ItemsSource="{Binding}" Margin="0,5,0,0" IsItemClickEnabled="False" Grid.Row="1">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="White" Margin="5,0,0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding supermarkt.Name}" FontSize="24" FontWeight="Bold" TextWrapping="WrapWholeWords"/>
+                        <ListView x:ConnectionId='1'  ItemsSource="{Binding producten}" Grid.Row="2" IsItemClickEnabled="True"                               >
 
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="DarkBlue" Background="White" BorderThickness="0" Margin="5,2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="5"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="70" Height="70" Grid.Row="0" Grid.RowSpan="5" VerticalAlignment="Top"/>
+                                            <TextBlock Text="{Binding Name}" Grid.Column="2" FontSize="22" FontWeight="Bold" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Text="{Binding Description}" Grid.Column="2" Grid.Row="1" FontSize="17" TextWrapping="WrapWholeWords"/>
+                                            <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
+                                                <TextBlock Visibility="{Binding PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                                <TextBlock Visibility="{Binding PriceBlockVisibility}" FontWeight="Bold" Text="{Binding Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                                <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                                <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Grid x:Name="NoResultsGrid" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+            <StackPanel>
+                <Image Source="/Assets/Search.png" Width="185" />
+                <TextBlock Text="Geen producten gevonden :(" FontWeight="Bold" TextAlignment="Center" FontSize="20" />
+            </StackPanel>
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#FFDCE7F3" Foreground="DarkBlue">
+            <AppBarButton x:ConnectionId='3' x:Uid="SearchButton" x:Name="SearchButton" Label="Zoeken" Icon="Find"                           />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
 

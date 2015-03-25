@@ -111,6 +111,7 @@
         <CommandBar x:Name="CommandBar" Background="#FFDCE7F3" Foreground="DarkBlue">
             <AppBarButton x:Uid="ShowAddButton" x:Name="ShowAddButton" Label="Toevoegen" Icon="Add" Click="ShowAddButton_Click"/>
             <AppBarButton x:Uid="HideAddButton" x:Name="HideAddButton" Label="Verbergen" Icon="Remove" Click="ShowAddButton_Click" Visibility="Collapsed"/>
+            <AppBarButton x:Uid="AddProductButtonAppbar" x:Name="AddProductButtonAppbar" Label="Product" Icon="Add" Click="AddProductButton_Click_1" Visibility="Collapsed"/>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

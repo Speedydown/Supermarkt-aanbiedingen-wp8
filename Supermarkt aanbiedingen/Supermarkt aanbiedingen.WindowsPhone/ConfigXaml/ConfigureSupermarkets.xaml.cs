@@ -48,6 +48,26 @@ namespace Supermarkt_aanbiedingen
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             Supermarkets = (List<Supermarkt>)await GetSAData.GetAllSupermarkets();
+
+            IList<Supermarkt> AanwezigeSupermarkten = await GetSAData.GetSelectedSuperMarkets();
+
+            if (AanwezigeSupermarkten != null)
+            {
+                NextButton.IsEnabled = true;
+
+                foreach (Supermarkt SA in Supermarkets)
+                {
+                    foreach (Supermarkt SB in AanwezigeSupermarkten)
+                    {
+                        if (SB.Name == SA.Name)
+                        {
+                            SA.SupermarketEnabled = true;
+                        }
+                    }
+                }
+            }
+
+
             SupermarktetsListview.ItemsSource = Supermarkets;
 
             await Task.Delay(3000);

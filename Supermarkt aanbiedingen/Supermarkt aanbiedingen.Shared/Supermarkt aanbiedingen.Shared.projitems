@@ -22,18 +22,34 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressRing.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Agrimarkt.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\AH.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Attent.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Boni.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\c1000.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Aldi.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\AHXL.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\clipboard_todo_list_checkmark-512.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\coop.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\dagwinkel.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\deen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Deka.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\DeleteIcon.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\dirkvandenbroek.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\emte.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Hoogvliet.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\JanLinders.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\jumbo.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Lidl.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\manmetkar.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\MCD.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\nettorama.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Plus_supermarkt.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\poeisz.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Search.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Spar.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\troefmarkt.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Vomar.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\winkelkar.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Common\ReadMe.txt" />
   </ItemGroup>

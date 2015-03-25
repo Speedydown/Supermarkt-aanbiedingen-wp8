@@ -111,6 +111,7 @@
         <CommandBar x:Name="CommandBar" Background="#FFDCE7F3" Foreground="DarkBlue">
             <AppBarButton x:ConnectionId='4' x:Uid="ShowAddButton" x:Name="ShowAddButton" Label="Toevoegen" Icon="Add"                            />
             <AppBarButton x:ConnectionId='5' x:Uid="HideAddButton" x:Name="HideAddButton" Label="Verbergen" Icon="Remove"                             Visibility="Collapsed"/>
+            <AppBarButton x:ConnectionId='6' x:Uid="AddProductButtonAppbar" x:Name="AddProductButtonAppbar" Label="Product" Icon="Add"                                  Visibility="Collapsed"/>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

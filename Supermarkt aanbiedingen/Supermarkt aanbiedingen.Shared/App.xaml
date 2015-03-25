@@ -11,6 +11,8 @@
                     <SolidColorBrush x:Key="CheckBoxForegroundThemeBrush" Color="DarkBlue" />
                     <SolidColorBrush x:Key="CheckBoxPressedBackgroundThemeBrush" Color="Transparent" />
                     <SolidColorBrush x:Key="ComboBoxBorderThemeBrush" Color="DarkBlue" />
+                    <SolidColorBrush x:Key="TextBoxBackgroundThemeBrush" Color="White" />
+                    <SolidColorBrush x:Key="TextBoxBorderThemeBrush" Color="DarkBlue" />
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="DarkBlue"/>
                     </Style>

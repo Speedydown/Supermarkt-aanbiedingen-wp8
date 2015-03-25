@@ -10,7 +10,7 @@
   <Identity Name="e010da8f-05eb-4ad4-8c99-f3ef5cd1043e" Publisher="CN=Teake" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="e010da8f-05eb-4ad4-8c99-f3ef5cd1043e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Supermarkt aanbiedingen.WindowsPhone</DisplayName>
+    <DisplayName>Supermarkt aanbiedingen</DisplayName>
     <PublisherDisplayName>Teake</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -19,13 +19,13 @@
     <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
   </Prerequisites>
   <Resources>
-    <Resource Language="EN-US" />
+    <Resource Language="NL-NL" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="Supermarkt aanbiedingen.WindowsPhone.exe" EntryPoint="Supermarkt_aanbiedingen.WindowsPhone.App">
-      <m3:VisualElements DisplayName="Supermarkt aanbiedingen.WindowsPhone" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Supermarkt aanbiedingen.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="Supermarkt aanbiedingen" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Supermarkt aanbiedingen.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"></m3:DefaultTile>
-        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+        <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="white" />
         <m3:InitialRotationPreference>
           <m3:Rotation Preference="portrait" />
         </m3:InitialRotationPreference>
