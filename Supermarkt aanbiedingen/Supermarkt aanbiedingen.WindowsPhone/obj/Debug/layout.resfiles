@@ -19,6 +19,7 @@ Assets\StoreLogo.scale-240.png
 Assets\WideLogo.scale-240.png
 App.xbf
 ConfigXaml\ConfigureSupermarkets.xbf
+ConfigXaml\Disclaimer.xbf
 MainPage.xbf
 ProductPage.xbf
 SearchPage.xbf

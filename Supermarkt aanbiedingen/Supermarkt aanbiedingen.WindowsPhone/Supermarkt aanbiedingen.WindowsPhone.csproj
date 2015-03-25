@@ -90,6 +90,9 @@
     <Compile Include="ConfigXaml\ConfigureSupermarkets.xaml.cs">
       <DependentUpon>ConfigureSupermarkets.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfigXaml\Disclaimer.xaml.cs">
+      <DependentUpon>Disclaimer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="ConfigXaml\ConfigureSupermarkets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigXaml\Disclaimer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

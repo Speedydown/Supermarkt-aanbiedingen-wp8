@@ -22,6 +22,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -76,6 +77,41 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid x:Name="AddProductGrid" Grid.Row="5" Grid.ColumnSpan="2" Background="White" VerticalAlignment="Bottom" Margin="5,0,5,0" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Voeg een eigen product toe:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            
+            <ComboBox x:Name="CountCombovox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+                <ComboBox.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                </ComboBox.Resources>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontWeight="Bold" Text="{Binding}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:ConnectionId='2' x:Name="AddProductButton" Grid.Row="1" Grid.Column="1" Content="Toevoegen"                                MaxWidth="150" Margin="5,0,0,0" HorizontalAlignment="Stretch"  />
+            
+            <TextBox x:ConnectionId='3' Grid.Row="2" Grid.ColumnSpan="4" x:Name="ProductTextbox"                                  PlaceholderText="Hier de omschrijving van het product" IsSpellCheckEnabled="True" Language="NL-nl"  />
+            
+        </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar x:Name="CommandBar" Background="#FFDCE7F3" Foreground="DarkBlue">
+            <AppBarButton x:ConnectionId='4' x:Uid="ShowAddButton" x:Name="ShowAddButton" Label="Toevoegen" Icon="Add"                            />
+            <AppBarButton x:ConnectionId='5' x:Uid="HideAddButton" x:Name="HideAddButton" Label="Verbergen" Icon="Remove"                             Visibility="Collapsed"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
 

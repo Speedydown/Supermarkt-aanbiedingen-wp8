@@ -58,6 +58,8 @@
       <RootProperty Name="IsEnabled" />
       <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="MaxWidth" />
+      <RootProperty Name="Margin" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -178,6 +180,7 @@
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Background" />
       <RootProperty Name="MinHeight" />
+      <RootProperty Name="VerticalAlignment" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -229,6 +232,11 @@
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ConfigureSupermarkets" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="VerticalScrollMode" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Supermarkt_aanbiedingen.ConfigXaml.Disclaimer" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="Items" />
     </RootType>
@@ -245,6 +253,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.MainPage" />
@@ -264,6 +273,12 @@
     </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ProductPage" />
     <RootType FullName="Supermarkt_aanbiedingen.SearchPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="IsSpellCheckEnabled" />
+      <RootProperty Name="Language" />
+      <RootEvent Name="KeyDown" />
+    </RootType>
     <RootType FullName="Supermarkt_aanbiedingen.ShoppingList" />
     <RootType FullName="Supermarkt_aanbiedingen.SupermarketDiscounts" />
   </Roots.RootTypes>

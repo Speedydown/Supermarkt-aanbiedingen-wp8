@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="Supermarkt_aanbiedingen.ConfigXaml.Disclaimer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Supermarkt_aanbiedingen.ConfigXaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="WhiteSmoke">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollMode="Enabled">
+        <TextBlock Grid.Row="0" TextWrapping="WrapWholeWords" FontSize="18"
+                   Text="Toepasselijkheid:&#13;Door gebruik te maken van deze app stemt u in met deze disclaimer.&#13; 
+                   &#13;Inhoud app:&#13;In deze app worden de aanbiedingen van supermarkten bijgehouden. Deze data kan zowel door de supermarkt zelf worden aangeleverd als door ons uit de betreffende folders van de supermarkten worden overgenomen. Hierdoor kunnen wij u wekelijks op de hoogte houden van alle aanbiedingen. Door het invoeren van alle aanbiedingen weten wij ook de 'van-prijzen\ van vele producten. &#13;&#13;Het kan voorkomen dat een bepaalde prijs gewijzigd is, maar dat wij daar nog niet van op de hoogte zijn. Toch blijkt uit steekproeven dat dit bij slechts een klein percentage van de producten het geval is.
+                   
+                   &#13;&#13;Aansprakelijkheid:
+                   &#13;Bij het samenstellen van de inhoud van deze app wordt de grootst mogelijke zorgvuldigheid betracht. Desondanks is het mogelijk dat er onjuistheden en onvolledigheden in de app voorkomen. Voordat u op de verstrekte informatie afgaat, dient zij op andere wijze bevestigd te zijn. Supermarktaanbiedingen en/of de samenstellers daarvan kunnen op geen enkele wijze aansprakelijk worden gehouden voor eventuele onjuistheden in de aoo. Aansprakelijkheid ten gevolge van schade, in iedere vorm, direct en/of indirect, ontstaan en/of voortvloeiend uit het gebruik van deze app wordt niet aanvaard.
+                   &#13;&#13;Bezoekers van Supermarkt aanbiedingen kunnen geen rechten ontlenen aan de getoonde aanbiedingen en prijzen. Deze getoonde aanbiedingen en prijzen zijn te allen tijde afkomstig (uit de folder) van de betreffende supermarkt en worden louter weergegeven op deze app. 
+
+                    &#13;&#13;Intellectuele eigendom
+                    &#13;Alle teksten, beeldmateriaal en de wijze waaop deze app wordt getoond, vallen onder het auteursrecht of een andere wettelijke bescherming van intellectueel eigendom. Zonder schriftelijke toestemming is het niet toegestaan om teksten en/of grafische afbeeldingen van deze website te bewerken, openbaar te maken en/of in een vorm van kopie te verveelvoudigen. "/>
+        </ScrollViewer>
+    </Grid>
+</Page>

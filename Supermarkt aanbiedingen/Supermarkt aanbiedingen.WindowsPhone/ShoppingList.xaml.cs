@@ -22,10 +22,12 @@ namespace Supermarkt_aanbiedingen
 {
     public sealed partial class ShoppingList : Page
     {
+        RelayCommand _checkedGoBackCommand;
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private BoodschappenLijstje boodschappenlijstje;
         private static Product SelectedItem;
+        private bool IsAddProductAvtive = false;
 
         public ShoppingList()
         {
@@ -34,6 +36,30 @@ namespace Supermarkt_aanbiedingen
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            _checkedGoBackCommand = new RelayCommand(
+                                   () => this.CheckGoBack(),
+                                   () => this.CanCheckGoBack()
+                               );
+
+            navigationHelper.GoBackCommand = _checkedGoBackCommand;
+        }
+
+        private bool CanCheckGoBack()
+        {
+            return true;
+        }
+
+        private void CheckGoBack()
+        {
+            if (this.IsAddProductAvtive)
+            {
+                this.ShowAndHideAddProduct();   
+            }
+            else
+            {
+                NavigationHelper.GoBack();
+            }
         }
 
         public NavigationHelper NavigationHelper
@@ -48,6 +74,8 @@ namespace Supermarkt_aanbiedingen
 
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            CountCombovox.ItemsSource = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[0];
             boodschappenlijstje = BoodschappenLijstje.Deserialize(e.NavigationParameter as string);
 
             this.DataContext = boodschappenlijstje;
@@ -142,5 +170,49 @@ namespace Supermarkt_aanbiedingen
         }
 
         #endregion
+
+        private async void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProductTextbox.Text.Length > 2)
+            {
+                await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
+                this.ShowAndHideAddProduct();
+
+                this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
+                this.DataContext = this.boodschappenlijstje;
+            }
+            else
+            {
+                ProductTextbox.Text = "";
+            }
+        }
+
+        private void ShowAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowAndHideAddProduct();   
+        }
+
+        private void ShowAndHideAddProduct()
+        {
+            this.IsAddProductAvtive = !this.IsAddProductAvtive;
+            AddProductGrid.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Visible : Windows.UI.Xaml.Visibility.Collapsed;
+
+            if (IsAddProductAvtive)
+            {
+                ProductTextbox.Focus(Windows.UI.Xaml.FocusState.Pointer);
+            }
+
+            ShowAddButton.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Collapsed : Windows.UI.Xaml.Visibility.Visible;
+            HideAddButton.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Visible : Windows.UI.Xaml.Visibility.Collapsed;
+            ProductTextbox.Text = "";
+        }
+
+        private void ProductTextbox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                CountCombovox.Focus(Windows.UI.Xaml.FocusState.Pointer);
+            }
+        }
     }
 }

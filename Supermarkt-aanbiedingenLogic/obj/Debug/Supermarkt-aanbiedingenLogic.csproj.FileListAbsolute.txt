@@ -20,12 +20,16 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenL
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\obj\Debug\qualifiers.txt
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.winmd
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.pdb
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.pri
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.dll
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.pdb
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.pri
+C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\Supermarkt-aanbiedingenLogic.csprojResolveAssemblyReference.cache
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\Supermarkt_aanbiedingenLogic.winmd
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\Supermarkt_aanbiedingenLogic.pdb
@@ -42,7 +46,3 @@ C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedin
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\qualifiers.txt
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen-wp8\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.xml

@@ -1,4 +1,5 @@
 ﻿using Supermarkt_aanbiedingen.Common;
+using Supermarkt_aanbiedingen.ConfigXaml;
 using Supermarkt_aanbiedingenLogic;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Supermarkt_aanbiedingen
 {
     public sealed partial class MainPage : Page
     {
+        RelayCommand _checkedGoBackCommand;
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private static int PivotItemClicked = -1;
@@ -32,6 +34,23 @@ namespace Supermarkt_aanbiedingen
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            _checkedGoBackCommand = new RelayCommand(
+                                   () => this.CheckGoBack(),
+                                   () => this.CanCheckGoBack()
+                               );
+
+            navigationHelper.GoBackCommand = _checkedGoBackCommand;
+        }
+
+        private bool CanCheckGoBack()
+        {
+            return true;
+        }
+
+        private void CheckGoBack()
+        {
+            Application.Current.Exit();
         }
 
         public NavigationHelper NavigationHelper
@@ -139,7 +158,12 @@ namespace Supermarkt_aanbiedingen
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            PivotItemClicked = pivot.SelectedIndex;
 
+            if (!Frame.Navigate(typeof(ConfigureSupermarkets)))
+            {
+
+            }
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -154,7 +178,12 @@ namespace Supermarkt_aanbiedingen
 
         private void PrivacyPolicyButton_Click(object sender, RoutedEventArgs e)
         {
+            PivotItemClicked = pivot.SelectedIndex;
 
+            if (!Frame.Navigate(typeof(Disclaimer)))
+            {
+
+            }
         }
 
         private async void BLListview_ItemClick(object sender, ItemClickEventArgs e)

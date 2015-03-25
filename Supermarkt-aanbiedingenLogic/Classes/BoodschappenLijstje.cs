@@ -40,6 +40,37 @@ namespace Supermarkt_aanbiedingenLogic
             return _BoodschappenLijstjes;
         }
 
+        public static IAsyncOperation<BoodschappenLijstje> GetBoodschappenLijstjeByName(string Name)
+        {
+            return GetBoodschappenLijstjeByNameHelper(Name).AsAsyncOperation();
+        }
+
+        private static async Task<BoodschappenLijstje> GetBoodschappenLijstjeByNameHelper(string Name)
+        {
+            if (_BoodschappenLijstjes == null)
+            {
+                try
+                {
+                    StorageFile sFile = await localFolder.GetFileAsync(FileName);
+                    _BoodschappenLijstjes = JsonConvert.DeserializeObject<IList<BoodschappenLijstje>>(await FileIO.ReadTextAsync(sFile));
+                }
+                catch (Exception)
+                {
+                    _BoodschappenLijstjes = new List<BoodschappenLijstje>();
+                }
+            }
+
+            foreach (BoodschappenLijstje b in _BoodschappenLijstjes)
+            {
+                if (b.supermarkt.Name == Name)
+                {
+                    return b;
+                }
+            }
+
+            return null;
+        }
+
         public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt, int Count)
         {
             return AddProductToBoodschappenLijstjeHelper(supermarkt, Count).AsAsyncAction();
@@ -107,6 +138,77 @@ namespace Supermarkt_aanbiedingenLogic
                 //Could not save? OHOH
             }
 
+            return;
+        }
+
+        public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt, Product product, int Count)
+        {
+            return AddProductToBoodschappenLijstjeHelper(supermarkt, product, Count).AsAsyncAction();
+        }
+
+        private static async Task AddProductToBoodschappenLijstjeHelper(Supermarkt supermarkt, Product product, int Count)
+        {
+            if (supermarkt == null || product == null)
+            {
+                return;
+            }
+
+            IList<BoodschappenLijstje> Boodschappenlijstjes = await GetBoodschappenLijstjes();
+            BoodschappenLijstje BoodschappenLijstje = null;
+
+            foreach (BoodschappenLijstje b in Boodschappenlijstjes)
+            {
+                if (b.SupermarktNaam == supermarkt.Name)
+                {
+                    BoodschappenLijstje = b;
+                    break;
+                }
+            }
+
+            if (BoodschappenLijstje == null)
+            {
+                BoodschappenLijstje = new BoodschappenLijstje(supermarkt.Name);
+                Boodschappenlijstjes.Add(BoodschappenLijstje);
+            }
+
+            foreach (BoodschappenlijstjeItem bi in BoodschappenLijstje.Producten)
+            {
+                if (bi.SupermarktItem.Name == product.Name)
+                {
+                    BoodschappenLijstje.Producten.Remove(bi);
+                    break;
+                }
+            }
+
+            if (Count > 0)
+            {
+                BoodschappenLijstje.Producten.Add(new BoodschappenlijstjeItem(Count, product));
+            }
+            else
+            {
+                if (BoodschappenLijstje.Producten.Count == 0)
+                {
+                    Boodschappenlijstjes.Remove(BoodschappenLijstje);
+                }
+            }
+
+            try
+            {
+                StorageFile file = await localFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
+
+                if (file != null)
+                {
+                    string JsonString = JsonConvert.SerializeObject(await GetBoodschappenLijstjes());
+
+                    await FileIO.WriteTextAsync(file, JsonString);
+                }
+            }
+            catch (Exception)
+            {
+                //Could not save? OHOH
+            }
+
+            BoodschappenLijstje.OnPropertyChanged("Producten");
             return;
         }
 

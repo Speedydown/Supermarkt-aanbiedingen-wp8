@@ -1,3 +1,0 @@
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\Supermarkt aanbiedingen.Windows.csproj;neutral
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\Supermarkt-aanbiedingenLogic.csproj;neutral
-C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\WebCrawlerTools\WebCrawlerTools.csproj;neutral

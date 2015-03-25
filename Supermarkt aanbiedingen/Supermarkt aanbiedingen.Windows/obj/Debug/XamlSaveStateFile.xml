@@ -1,6 +1,5 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\supermarkt aanbiedingen\supermarkt aanbiedingen.windows\obj\debug\intermediatexaml\supermarkt aanbiedingen.windows.exe" HashGuid="dda29cad-84c2-888e-6836-e154dd0a4032" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="0ba1ba2a-3e16-72ba-9587-f74e7ae8f9e3" />
+    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="8686d2c2-8b48-ae1e-5cb6-07930af759df" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>
