@@ -30,9 +30,15 @@ namespace WebCrawlerTools
                 EndIndexOfContent = GetPositionOfStringInHTMLSource(EndHTMLTag, InputSource, false);
             }
 
-            if (EndIndexOfContent == -1 || StartIndexOFContent >= EndIndexOfContent)
+            if (EndIndexOfContent == -1 || StartIndexOFContent > EndIndexOfContent)
             {
                 throw new Exception("Could not find EndHTMLTag in source.");
+            }
+
+            if (StartIndexOFContent == EndIndexOfContent)
+            {
+                OutputSource = InputSource.Substring(GetPositionOfStringInHTMLSource(EndHTMLTag, InputSource, CutToEndOfEndHTMLTag));
+                return string.Empty;
             }
 
             string Content = InputSource.Substring(StartIndexOFContent, EndIndexOfContent - StartIndexOFContent);

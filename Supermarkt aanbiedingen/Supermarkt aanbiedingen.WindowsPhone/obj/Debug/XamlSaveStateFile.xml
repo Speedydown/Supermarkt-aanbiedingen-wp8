@@ -1,7 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt aanbiedingen\supermarkt aanbiedingen.windowsphone\obj\debug\intermediatexaml\supermarkt aanbiedingen.windowsphone.exe" HashGuid="9261393d-f1cf-6c8c-5166-544ae7ba2a29" />
+    <LocalAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt aanbiedingen\supermarkt aanbiedingen.windowsphone\obj\debug\intermediatexaml\supermarkt aanbiedingen.windowsphone.exe" HashGuid="77753cf7-de49-e692-daf1-d7ae11bc52bf" />
     <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\packages\newtonsoft.json.7.0.1-beta1\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="6ea6c1fa-8cdc-39f2-a30f-100f2185339f" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="716cb8a4-e984-52cc-ab1a-e97feaf70b53" />
+    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="daea5ff5-e510-ca40-1445-2fdb525bd6b4" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>
