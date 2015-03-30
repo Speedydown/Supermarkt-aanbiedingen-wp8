@@ -140,19 +140,26 @@ namespace Supermarkt_aanbiedingen
 
         private async void BLListview_Loaded(object sender, RoutedEventArgs e)
         {
-            (sender as ListView).ItemsSource = await BoodschappenLijstje.GetBoodschappenLijstjes();
-
-            if (((sender as ListView).ItemsSource as List<BoodschappenLijstje>).Count != 0)
+            try
             {
-                (sender as ListView).Visibility = Windows.UI.Xaml.Visibility.Visible;
+                (sender as ListView).ItemsSource = await BoodschappenLijstje.GetBoodschappenLijstjes();
 
-                foreach (UIElement u in (((sender as ListView).Parent as Grid).Parent as Grid).Children)
+                if (((sender as ListView).ItemsSource as List<BoodschappenLijstje>).Count != 0)
                 {
-                    if ((u as Grid).Name == "NoItemsGrid")
+                    (sender as ListView).Visibility = Windows.UI.Xaml.Visibility.Visible;
+
+                    foreach (UIElement u in (((sender as ListView).Parent as Grid).Parent as Grid).Children)
                     {
-                        (u as Grid).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                        if ((u as Grid).Name == "NoItemsGrid")
+                        {
+                            (u as Grid).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                        }
                     }
                 }
+            }
+            catch
+            {
+
             }
         }
 
@@ -188,28 +195,35 @@ namespace Supermarkt_aanbiedingen
 
         private async void BLListview_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PivotItemClicked = 1;
-
-            BoodschappenLijstje bl = e.ClickedItem as BoodschappenLijstje;
-            Supermarkt supermarkt = null;
-
-            foreach (Supermarkt s in await GetSAData.GetAllSupermarkets())
+            try
             {
-                if (s.Name == bl.SupermarktNaam)
+                PivotItemClicked = 1;
+
+                BoodschappenLijstje bl = e.ClickedItem as BoodschappenLijstje;
+                Supermarkt supermarkt = null;
+
+                foreach (Supermarkt s in await GetSAData.GetAllSupermarkets())
                 {
-                    supermarkt = s;
-                    break;
+                    if (s.Name == bl.SupermarktNaam)
+                    {
+                        supermarkt = s;
+                        break;
+                    }
+                }
+
+                if (supermarkt == null)
+                {
+                    return;
+                }
+
+                bl.supermarkt = supermarkt;
+
+                if (!Frame.Navigate(typeof(ShoppingList), bl.Serialize()))
+                {
+
                 }
             }
-
-            if (supermarkt == null)
-            {
-                return;
-            }
-
-            bl.supermarkt = supermarkt;
-
-            if (!Frame.Navigate(typeof(ShoppingList), bl.Serialize()))
+            catch
             {
 
             }

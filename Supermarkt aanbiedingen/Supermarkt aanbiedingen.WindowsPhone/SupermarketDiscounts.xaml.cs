@@ -97,23 +97,30 @@ namespace Supermarkt_aanbiedingen
 
         private async void ProductsLV_Loaded(object sender, RoutedEventArgs e)
         {
-            if (SelectedItem != null)
+            try
             {
-                foreach (Product p in supermarkt.ProductPagina.Producten)
+                if (SelectedItem != null)
                 {
-                    if (p.URL == SelectedItem.URL)
+                    foreach (Product p in supermarkt.ProductPagina.Producten)
                     {
-                        supermarkt.ProductPagina.SelectedItem = p;
-                        SelectedItem = null;
-                        (sender as ListView).SelectedItem = p;
-                        break;
+                        if (p.URL == SelectedItem.URL)
+                        {
+                            supermarkt.ProductPagina.SelectedItem = p;
+                            SelectedItem = null;
+                            (sender as ListView).SelectedItem = p;
+                            break;
+                        }
                     }
+
+                    (sender as ListView).ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
+
+                    //Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    //() => (sender as ListView).ScrollIntoView(SelectedItem));
                 }
+            }
+            catch
+            {
 
-                (sender as ListView).ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
-
-                //Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                //() => (sender as ListView).ScrollIntoView(SelectedItem));
             }
 
             

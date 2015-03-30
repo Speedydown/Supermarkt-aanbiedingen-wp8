@@ -113,24 +113,30 @@ namespace Supermarkt_aanbiedingen
 
         private async void Search()
         {
-            SearchTextbox.IsEnabled = false;
-            SearchButton.IsEnabled = false;
-
-            IList<Supermarkt> supermarkten = await GetSAData.GetSelectedSuperMarkets();
-            searchresult = SearchHandler.SearchForProductenInDiscounts(supermarkten, SearchTextbox.Text);
-
-
-            if (searchresult.Count > 0)
+            try
             {
-                NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            }
+                SearchTextbox.IsEnabled = false;
+                SearchButton.IsEnabled = false;
+
+                IList<Supermarkt> supermarkten = await GetSAData.GetSelectedSuperMarkets();
+                searchresult = SearchHandler.SearchForProductenInDiscounts(supermarkten, SearchTextbox.Text);
+
+
+                if (searchresult.Count > 0)
+                {
+                    NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                }
                 else
                 {
                     NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 }
 
-            this.DataContext = searchresult;
-
+                this.DataContext = searchresult;
+            }
+            catch
+            {
+                NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
 
 
 

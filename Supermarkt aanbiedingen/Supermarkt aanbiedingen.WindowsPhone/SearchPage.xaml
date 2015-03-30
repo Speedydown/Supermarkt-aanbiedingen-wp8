@@ -43,7 +43,11 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding supermarkt.Name}" FontSize="24" FontWeight="Bold" TextWrapping="WrapWholeWords"/>
                         <ListView  ItemsSource="{Binding producten}" Grid.Row="2" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
-
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Border BorderBrush="DarkBlue" Background="White" BorderThickness="0" Margin="5,2">
@@ -63,7 +67,7 @@
                                             <TextBlock Text="{Binding Description}" Grid.Column="2" Grid.Row="1" FontSize="17" TextWrapping="WrapWholeWords"/>
                                             <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
                                                 <TextBlock Visibility="{Binding PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
-                                                <TextBlock Visibility="{Binding PriceBlockVisibility}" FontWeight="Bold" Text="{Binding Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                                                <TextBlock Visibility="{Binding PriceBlockVisibility}" FontWeight="Bold" Text="{Binding Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0" HorizontalAlignment="Right" />
                                                 <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
                                                 <TextBlock Visibility="{Binding DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
                                             </StackPanel>
