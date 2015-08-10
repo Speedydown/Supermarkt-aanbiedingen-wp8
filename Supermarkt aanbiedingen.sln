@@ -13,7 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarkt aanbiedingen.Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarkt-aanbiedingenLogic", "Supermarkt-aanbiedingenLogic\Supermarkt-aanbiedingenLogic.csproj", "{AB37605F-CB28-4FC5-9DDB-D7A85E9AB561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawlerTools", "WebCrawlerTools\WebCrawlerTools.csproj", "{EF41C761-8924-40F6-BC70-AF1064796ED2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawlerTools", "..\Speedydown.nl-API\WebCrawlerTools\WebCrawlerTools.csproj", "{EF41C761-8924-40F6-BC70-AF1064796ED2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlControlLibrary", "..\Speedydown.nl-API\XamlControlLibrary\XamlControlLibrary.csproj", "{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WRCHelperLibrary", "..\Speedydown.nl-API\WRCHelperLibrary\WRCHelperLibrary.csproj", "{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -96,6 +100,26 @@ Global
 		{EF41C761-8924-40F6-BC70-AF1064796ED2}.Release|ARM.ActiveCfg = Release|Any CPU
 		{EF41C761-8924-40F6-BC70-AF1064796ED2}.Release|x64.ActiveCfg = Release|Any CPU
 		{EF41C761-8924-40F6-BC70-AF1064796ED2}.Release|x86.ActiveCfg = Release|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Release|ARM.ActiveCfg = Release|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Release|x64.ActiveCfg = Release|Any CPU
+		{09F3EFE7-AC3C-4189-90F1-C7BF9E01AF96}.Release|x86.ActiveCfg = Release|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Release|x64.ActiveCfg = Release|Any CPU
+		{6F1A5AC4-C4AD-49C8-B37B-C541E09D5742}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

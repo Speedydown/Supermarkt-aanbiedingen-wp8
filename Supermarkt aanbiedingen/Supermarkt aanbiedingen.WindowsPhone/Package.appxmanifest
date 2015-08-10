@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="52891Speedydown.Supermarktaanbiedingen" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="1.1.0.3" />
+  <Identity Name="52891Speedydown.Supermarktaanbiedingen" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="2015.810.2355.1" />
   <mp:PhoneIdentity PhoneProductId="361c6197-8fe6-4a1a-901a-544bdb38d894" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Supermarkt aanbiedingen</DisplayName>

@@ -47,42 +47,53 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            Supermarkets = (List<Supermarkt>)await GetSAData.GetAllSupermarkets();
-
-            IList<Supermarkt> AanwezigeSupermarkten = null;
-
             try
             {
-                AanwezigeSupermarkten = await GetSAData.GetSelectedSuperMarkets();
-            }
-            catch
-            {
+                LoadingControl.DisplayLoadingError(false);
+                LoadingControl.SetLoadingStatus(true);
 
-            }
+                Supermarkets = (List<Supermarkt>)await GetSAData.GetAllSupermarkets();
 
-            if (AanwezigeSupermarkten != null)
-            {
-                NextButton.IsEnabled = true;
+                IList<Supermarkt> AanwezigeSupermarkten = null;
 
-                foreach (Supermarkt SA in Supermarkets)
+                try
                 {
-                    foreach (Supermarkt SB in AanwezigeSupermarkten)
+                    AanwezigeSupermarkten = await GetSAData.GetSelectedSuperMarkets();
+                }
+                catch
+                {
+
+                }
+
+                if (AanwezigeSupermarkten != null && Supermarkets != null)
+                {
+                    NextButton.IsEnabled = true;
+
+                    foreach (Supermarkt SA in Supermarkets)
                     {
-                        if (SB.Name == SA.Name)
+                        foreach (Supermarkt SB in AanwezigeSupermarkten)
                         {
-                            SA.SupermarketEnabled = true;
+                            if (SB.Name == SA.Name)
+                            {
+                                SA.SupermarketEnabled = true;
+                            }
                         }
                     }
                 }
+                else if (Supermarkets == null)
+                {
+                    throw new NullReferenceException();
+                }
+
+                SupermarktetsListview.ItemsSource = Supermarkets;
+                ContentGrid.Visibility = Visibility.Visible;
+                LoadingControl.SetLoadingStatus(false);
             }
-
-
-            SupermarktetsListview.ItemsSource = Supermarkets;
-
-            await Task.Delay(3000);
-
-            LoadingGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            ContentGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            catch
+            {
+                LoadingControl.SetLoadingStatus(false);
+                LoadingControl.DisplayLoadingError(true);
+            }
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -15,13 +16,14 @@ namespace Supermarkt_aanbiedingenLogic
 {
     public sealed class Supermarkt : INotifyPropertyChanged
     {
+        public int ID { get; private set; }
         public string Name { get; private set; }
         public string URL { get; private set; }
         public string Title { get; private set; }
         public string ImageURL { get; private set; }
         [JsonIgnore]
         public string Slogan { get; private set; }
-        public ProductPagina ProductPagina { get; private set; }
+        public ProductPagina ProductPagina { get; set; }
         private bool _SupermarketEnabled = false;
         [JsonIgnore]
         public bool SupermarketEnabled
@@ -37,6 +39,23 @@ namespace Supermarkt_aanbiedingenLogic
                 OnPropertyChanged("SelectColor");
             }
         }
+
+        [JsonIgnore]
+        public int Width
+        {
+            get
+            {
+                if (Window.Current != null)
+                {
+                    return ((int)(Window.Current.Bounds.Width) / 2) - 10;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
         [JsonIgnore]
         public SolidColorBrush SelectColor
         {
@@ -53,8 +72,9 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public Supermarkt(string Name, string URL, string Title, ProductPagina ProductPagina)
+        public Supermarkt(int ID, string Name, string URL, string Title, ProductPagina ProductPagina)
         {
+            this.ID = ID;
             this.Name = Name;
 
             if (this.Name.Contains("Aanbiedingen "))
@@ -170,7 +190,7 @@ namespace Supermarkt_aanbiedingenLogic
             switch (this.Name)
             {
                 case "Agrimarkt":
-                    this.ImageURL = "/Assets/Agrimarkt.gif";
+                    this.ImageURL = "/Assets/AgriMarkt.png";
                     break;
                 case "Albert Heijn":
                     this.ImageURL = "/Assets/AH.png";

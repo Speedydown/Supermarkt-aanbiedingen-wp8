@@ -32,6 +32,7 @@ namespace Supermarkt_aanbiedingen
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         public NavigationHelper NavigationHelper
@@ -46,6 +47,7 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            LoadingControl.SetLoadingStatus(false);
             SearchTextbox.Focus(Windows.UI.Xaml.FocusState.Pointer);
         }
 
@@ -113,12 +115,24 @@ namespace Supermarkt_aanbiedingen
 
         private async void Search()
         {
+            LoadingControl.DisplayLoadingError(false);
+            LoadingControl.SetLoadingStatus(true);
+
             try
             {
                 SearchTextbox.IsEnabled = false;
                 SearchButton.IsEnabled = false;
 
                 IList<Supermarkt> supermarkten = await GetSAData.GetSelectedSuperMarkets();
+
+                foreach (Supermarkt s in supermarkten)
+                {
+                    if (s.ProductPagina == null)
+                    {
+                        s.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(s);
+                    }
+                }
+
                 searchresult = SearchHandler.SearchForProductenInDiscounts(supermarkten, SearchTextbox.Text);
 
 
@@ -136,6 +150,7 @@ namespace Supermarkt_aanbiedingen
             catch
             {
                 NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                LoadingControl.SetLoadingStatus(false);
             }
 
 

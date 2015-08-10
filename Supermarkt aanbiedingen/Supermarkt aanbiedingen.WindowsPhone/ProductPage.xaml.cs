@@ -57,7 +57,7 @@ namespace Supermarkt_aanbiedingen
 
             foreach (BoodschappenLijstje b in lijstjes)
             {
-                if (b.SupermarktNaam == supermarkt.Name)
+                if (b.supermarkt.Name == supermarkt.Name)
                 {
                     foreach (BoodschappenlijstjeItem BItem in b.Producten)
                     {

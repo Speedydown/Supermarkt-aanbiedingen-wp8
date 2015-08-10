@@ -46,11 +46,50 @@ namespace Supermarkt_aanbiedingen
             get { return this.defaultViewModel; }
         }
 
-        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
+            LoadingControl.DisplayLoadingError(false);
+            LoadingControl.SetLoadingStatus(true);
 
-            this.DataContext = supermarkt;
+            try
+            {
+                supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
+                this.DataContext = supermarkt;
+                supermarkt.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(supermarkt);
+                this.ProductsLV.DataContext =  supermarkt.ProductPagina.Producten;
+
+                try
+                {
+                    if (SelectedItem != null)
+                    {
+                        foreach (Product p in supermarkt.ProductPagina.Producten)
+                        {
+                            if (p.ID == SelectedItem.ID)
+                            {
+                                supermarkt.ProductPagina.SelectedItem = p;
+                                SelectedItem = null;
+                                ProductsLV.SelectedItem = p;
+                                break;
+                            }
+                        }
+
+                        ProductsLV.ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
+                    }
+                }
+                catch
+                {
+
+                }
+                
+            }
+            catch
+            {
+                LoadingControl.DisplayLoadingError(true);
+            }
+            finally
+            {
+                LoadingControl.SetLoadingStatus(false);
+            }
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -97,31 +136,7 @@ namespace Supermarkt_aanbiedingen
 
         private async void ProductsLV_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (SelectedItem != null)
-                {
-                    foreach (Product p in supermarkt.ProductPagina.Producten)
-                    {
-                        if (p.URL == SelectedItem.URL)
-                        {
-                            supermarkt.ProductPagina.SelectedItem = p;
-                            SelectedItem = null;
-                            (sender as ListView).SelectedItem = p;
-                            break;
-                        }
-                    }
-
-                    (sender as ListView).ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
-
-                    //Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                    //() => (sender as ListView).ScrollIntoView(SelectedItem));
-                }
-            }
-            catch
-            {
-
-            }
+          
 
             
         }

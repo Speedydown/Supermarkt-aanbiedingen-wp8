@@ -7,24 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Supermarkt_aanbiedingenLogic.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:CLib="using:XamlControlLibrary"
+    Background="White">
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="LightBlue">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        <Grid Margin="5,0,5,0" Visibility="Collapsed" x:Name="ContentGrid">
+        <Grid x:Name="ContentGrid" Visibility="Collapsed" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Welkom!" FontSize="55" Margin="0,0,0,0"/>
-            <TextBlock Grid.Row="1" Text="Selecteer hieronder van welke supermarkten waar u aanbiedingen van wenst te zien." FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,5"/>
-            <ListView x:Name="SupermarktetsListview" Grid.Row="2" ItemClick="SupermarktetsListview_ItemClick" IsItemClickEnabled="True">
+            <TextBlock Grid.Row="0" Text="Welkom!" FontSize="55" Margin="5,0"/>
+            <TextBlock Grid.Row="1" Text="Selecteer hieronder van welke supermarkten waar u aanbiedingen van wenst te zien." FontSize="18" TextWrapping="WrapWholeWords" Margin="5,0,5,5"/>
+            <ListView x:Name="SupermarktetsListview" Background="LightBlue" Padding="0,10,0,0" Grid.Row="2" ItemClick="SupermarktetsListview_ItemClick" IsItemClickEnabled="True">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -32,7 +33,7 @@
                     </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="0,0,0,10">
+                        <Border BorderBrush="DarkBlue" BorderThickness="1" Margin="5,0,5,10" Background="White">
                             <Grid x:Name="SupermarketGrid">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
@@ -55,20 +56,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="NextButton" Grid.Row="3" HorizontalAlignment="Right" Content="naar de aanbiedingen!" IsEnabled="False" Click="NextButton_Click"/>
+            <Button x:Name="NextButton" Grid.Row="3" HorizontalAlignment="Right" Content="naar de aanbiedingen!" IsEnabled="False" Margin="0,0,5,0" Click="NextButton_Click"/>
         </Grid>
-        <Grid x:Name="LoadingGrid" Visibility="Visible">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="1" Text="De aanbiedingen komen er aan!" Foreground="DarkBlue" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,15"/>
-            <controls:ProgressRing Grid.Row="2" Height="250" Width="250"  Visibility="Visible" IsActive="True" Margin="0,0,0,10"/>
-            <TextBlock Grid.Row="3" Text="Een moment geduld AUB...." Foreground="DarkBlue" FontSize="14" HorizontalAlignment="Center"/>
-        </Grid>
+        <CLib:LoadingControl x:Name="LoadingControl" TextColor="White" LoadingText="Bezig met het ophalen van de supermarkten..." ErrorText="Er is iets mis gegaan :( Probeer het later opnieuw" ErrorSubText="Is er wel een internet verbinding?"/>
         
     </Grid>
 </Page>

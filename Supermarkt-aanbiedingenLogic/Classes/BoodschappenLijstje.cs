@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Supermarkt_aanbiedingenLogic;
+using Supermarkt_aanbiedingenLogic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,6 +36,38 @@ namespace Supermarkt_aanbiedingenLogic
                 catch (Exception)
                 {
                     _BoodschappenLijstjes = new List<BoodschappenLijstje>();
+                }
+            }
+
+            bool Save = false;
+
+            foreach (BoodschappenLijstje b in _BoodschappenLijstjes)
+            {
+                if (b.supermarkt == null)
+                {
+                    _BoodschappenLijstjes.Remove(b);
+                    Save = true;
+                }
+            }
+
+            if (Save)
+            {
+                await ErrorDialog.ShowError("Welkom", "Welkom bij de nieuwe versie van Supermarkt aanbiedingen. \n\nVanaf nu kunt u de boodschappenlijstjes offline bekijken.\n\nHelaas zijn door de upgrade wel uw bestaande booschappenlijstjes verloren gegaan.");
+
+                try
+                {
+                    StorageFile file = await localFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
+
+                    if (file != null)
+                    {
+                        string JsonString = JsonConvert.SerializeObject(await GetBoodschappenLijstjes());
+
+                        await FileIO.WriteTextAsync(file, JsonString);
+                    }
+                }
+                catch (Exception)
+                {
+                    //Could not save? OHOH
                 }
             }
 
@@ -88,7 +122,7 @@ namespace Supermarkt_aanbiedingenLogic
 
             foreach (BoodschappenLijstje b in Boodschappenlijstjes)
             {
-                if (b.SupermarktNaam == supermarkt.Name)
+                if (b.supermarkt.Name == supermarkt.Name)
                 {
                     BoodschappenLijstje = b;
                     break;
@@ -97,7 +131,7 @@ namespace Supermarkt_aanbiedingenLogic
 
             if (BoodschappenLijstje == null)
             {
-                BoodschappenLijstje = new BoodschappenLijstje(supermarkt.Name);
+                BoodschappenLijstje = new BoodschappenLijstje(supermarkt);
                 Boodschappenlijstjes.Add(BoodschappenLijstje);
             }
 
@@ -158,7 +192,7 @@ namespace Supermarkt_aanbiedingenLogic
 
             foreach (BoodschappenLijstje b in Boodschappenlijstjes)
             {
-                if (b.SupermarktNaam == supermarkt.Name)
+                if (b.supermarkt.Name == supermarkt.Name)
                 {
                     BoodschappenLijstje = b;
                     break;
@@ -167,7 +201,7 @@ namespace Supermarkt_aanbiedingenLogic
 
             if (BoodschappenLijstje == null)
             {
-                BoodschappenLijstje = new BoodschappenLijstje(supermarkt.Name);
+                BoodschappenLijstje = new BoodschappenLijstje(supermarkt);
                 Boodschappenlijstjes.Add(BoodschappenLijstje);
             }
 
@@ -224,7 +258,7 @@ namespace Supermarkt_aanbiedingenLogic
 
             foreach (BoodschappenLijstje b in Boodschappenlijstjes)
             {
-                if (b.SupermarktNaam == supermarkt.Name)
+                if (b.supermarkt.Name == supermarkt.Name)
                 {
                     BoodschappenLijstje = b;
                     break;
@@ -266,8 +300,6 @@ namespace Supermarkt_aanbiedingenLogic
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string SupermarktNaam { get; private set; }
-
         public IList<BoodschappenlijstjeItem> Producten { get; private set; }
         public Supermarkt supermarkt { get; set; }
         public Product SelectedItem { get; set; }
@@ -287,9 +319,9 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public BoodschappenLijstje(string SupermarktNaam)
+        public BoodschappenLijstje(Supermarkt supermarkt)
         {
-            this.SupermarktNaam = SupermarktNaam;
+            this.supermarkt = supermarkt;
             this.Producten = new ObservableCollection<BoodschappenlijstjeItem>();
         }
 

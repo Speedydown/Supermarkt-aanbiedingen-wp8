@@ -11,6 +11,7 @@ namespace Supermarkt_aanbiedingenLogic
 {
     public sealed class Product : SupermarktItem
     {
+        public int ID { get; private set; }
         public string Quantity { get; private set; }
         public string Price { get; private set; }
         public string DiscountPrice { get; private set; }
@@ -35,8 +36,9 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public Product(string Quantity, string Price, string DiscountPrice, string Name, string Description, string URL, string ImageURL)
+        public Product(int ID, string Quantity, string Price, string DiscountPrice, string Name, string Description, string URL, string ImageURL)
         {
+            this.ID = ID;
             this.Quantity = Quantity;
             this.Price = WebUtility.HtmlDecode(Price);
             this.DiscountPrice = WebUtility.HtmlDecode(DiscountPrice);

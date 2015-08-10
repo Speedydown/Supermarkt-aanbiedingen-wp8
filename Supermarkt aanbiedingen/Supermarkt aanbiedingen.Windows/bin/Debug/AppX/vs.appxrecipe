@@ -8,7 +8,7 @@
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>93a9f6b9-840b-47c9-9651-618821611893</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\obj\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>D638B9E036BCAD3A32587EFCFE522CADF909DE9484DBB01B98E47E0BAF7AFAE3</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>4A7C842CB8B4DDEF6078AF9043CD68F8212DD5834214B967A2438B760802CE2C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>93a9f6b9-840b-47c9-9651-618821611893_1.0.0.0_neutral__k2hvqbrg6nk8p</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>93a9f6b9-840b-47c9-9651-618821611893_k2hvqbrg6nk8p!App</RegisteredUserModeAppID>
     <RegisteredPackageID>93a9f6b9-840b-47c9-9651-618821611893</RegisteredPackageID>
@@ -20,13 +20,25 @@
     <AppXManifest Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-03-09T17:12:38.323</Modified>
+      <Modified>2015-08-10T21:46:48.791</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.exe">
       <PackagePath>Supermarkt aanbiedingen.Windows.exe</PackagePath>
-      <Modified>2015-03-09T17:12:32.457</Modified>
+      <Modified>2015-08-10T21:46:45.934</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Supermarkt_aanbiedingenLogic.winmd">
+      <PackagePath>Supermarkt_aanbiedingenLogic.winmd</PackagePath>
+      <Modified>2015-08-10T21:46:44.460</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2015-03-15T12:14:36.042</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt-aanbiedingenLogic\bin\Debug\WebCrawlerTools.dll">
+      <PackagePath>WebCrawlerTools.dll</PackagePath>
+      <Modified>2015-08-08T11:16:43.399</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -48,25 +60,145 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T09:55:28.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\AgriMarkt.png">
+      <PackagePath>Assets\AgriMarkt.png</PackagePath>
+      <Modified>2015-08-10T16:00:50.357</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\AH.png">
+      <PackagePath>Assets\AH.png</PackagePath>
+      <Modified>2015-03-15T12:14:35.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Attent.png">
+      <PackagePath>Assets\Attent.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.548</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Boni.png">
+      <PackagePath>Assets\Boni.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.550</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\c1000.png">
+      <PackagePath>Assets\c1000.png</PackagePath>
+      <Modified>2015-03-15T12:14:35.038</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\AHXL.png">
+      <PackagePath>Assets\AHXL.png</PackagePath>
+      <Modified>2015-03-15T12:14:35.024</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\clipboard_todo_list_checkmark-512.png">
+      <PackagePath>Assets\clipboard_todo_list_checkmark-512.png</PackagePath>
+      <Modified>2015-03-20T20:38:06.072</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\dagwinkel.png">
+      <PackagePath>Assets\dagwinkel.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.571</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\deen.png">
+      <PackagePath>Assets\deen.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.572</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\DeleteIcon.png">
+      <PackagePath>Assets\DeleteIcon.png</PackagePath>
+      <Modified>2015-03-21T12:54:00.489</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\dirkvandenbroek.png">
+      <PackagePath>Assets\dirkvandenbroek.png</PackagePath>
+      <Modified>2015-03-15T12:14:35.039</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Lidl.png">
+      <PackagePath>Assets\Lidl.png</PackagePath>
+      <Modified>2015-03-15T12:14:35.030</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\manmetkar.png">
+      <PackagePath>Assets\manmetkar.png</PackagePath>
+      <Modified>2015-03-22T00:43:37.692</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\poeisz.png">
+      <PackagePath>Assets\poeisz.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.579</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Search.png">
+      <PackagePath>Assets\Search.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.560</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\troefmarkt.png">
+      <PackagePath>Assets\troefmarkt.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.580</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Vomar.png">
+      <PackagePath>Assets\Vomar.png</PackagePath>
+      <Modified>2015-03-27T23:03:26.566</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Aldi.jpg">
+      <PackagePath>Assets\Aldi.jpg</PackagePath>
+      <Modified>2015-03-15T12:14:35.028</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\coop.jpg">
+      <PackagePath>Assets\coop.jpg</PackagePath>
+      <Modified>2015-03-27T23:03:26.570</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Deka.jpg">
+      <PackagePath>Assets\Deka.jpg</PackagePath>
+      <Modified>2015-03-27T23:03:26.553</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Hoogvliet.jpg">
+      <PackagePath>Assets\Hoogvliet.jpg</PackagePath>
+      <Modified>2015-03-27T23:03:26.557</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\jumbo.jpg">
+      <PackagePath>Assets\jumbo.jpg</PackagePath>
+      <Modified>2015-03-15T12:14:35.044</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\nettorama.jpg">
+      <PackagePath>Assets\nettorama.jpg</PackagePath>
+      <Modified>2015-03-27T23:03:26.578</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Plus_supermarkt.jpg">
+      <PackagePath>Assets\Plus_supermarkt.jpg</PackagePath>
+      <Modified>2015-03-15T12:14:35.035</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\Spar.jpg">
+      <PackagePath>Assets\Spar.jpg</PackagePath>
+      <Modified>2015-03-27T23:03:26.565</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\emte.gif">
+      <PackagePath>Assets\emte.gif</PackagePath>
+      <Modified>2015-03-27T23:03:26.574</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\JanLinders.gif">
+      <PackagePath>Assets\JanLinders.gif</PackagePath>
+      <Modified>2015-03-27T23:03:26.558</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\MCD.gif">
+      <PackagePath>Assets\MCD.gif</PackagePath>
+      <Modified>2015-03-27T23:03:26.559</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Assets\winkelkar.gif">
+      <PackagePath>Assets\winkelkar.gif</PackagePath>
+      <Modified>2015-03-15T12:14:35.045</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Shared\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
       <Modified>2015-03-06T23:07:17.096</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-03-09T17:12:32.122</Modified>
+      <Modified>2015-08-10T21:46:45.645</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\ConfigXaml\ConfigureSupermarkets.xbf">
+      <PackagePath>ConfigXaml\ConfigureSupermarkets.xbf</PackagePath>
+      <Modified>2015-08-10T14:52:55.286</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-03-09T17:12:32.126</Modified>
+      <Modified>2015-08-10T14:52:55.289</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\Supermarkt aanbiedingen.Windows.xr.xml">
       <PackagePath>Supermarkt aanbiedingen.Windows.xr.xml</PackagePath>
-      <Modified>2015-03-09T17:12:31.996</Modified>
+      <Modified>2015-08-10T21:46:45.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Teake\Documents\GitHub\Supermarkt-aanbiedingen\Supermarkt aanbiedingen\Supermarkt aanbiedingen.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-03-09T17:12:38.104</Modified>
+      <Modified>2015-08-10T21:46:46.265</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

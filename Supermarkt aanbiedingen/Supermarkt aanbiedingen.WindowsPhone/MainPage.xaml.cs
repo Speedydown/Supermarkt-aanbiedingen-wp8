@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -30,6 +31,8 @@ namespace Supermarkt_aanbiedingen
         public MainPage()
         {
             this.InitializeComponent();
+
+            StatusBar.GetForCurrentView().ForegroundColor = Colors.DarkBlue;
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
@@ -63,8 +66,10 @@ namespace Supermarkt_aanbiedingen
             get { return this.defaultViewModel; }
         }
 
-        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            //await StatusBar.GetForCurrentView().HideAsync();
+
             if (PivotItemClicked != -1)
             {
                 pivot.SelectedIndex = PivotItemClicked;
@@ -106,26 +111,22 @@ namespace Supermarkt_aanbiedingen
         {
             try
             {
+                LoadingControl.SetLoadingStatus(true);
+                LoadingControl.DisplayLoadingError(false);
+
                 List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetSelectedSuperMarkets();
                 (sender as ListView).ItemsSource = supermarkten;
 
-                ((sender as ListView).Parent as Grid).Visibility = Windows.UI.Xaml.Visibility.Visible;
-                
-                foreach (UIElement u in (((sender as ListView).Parent as Grid).Parent as Grid).Children)
-                {
-                    if ((u as Grid).Name == "LoadingGrid")
-                    {
-                        (u as Grid).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                    }
-                }
+                Content.Visibility = Visibility.Visible;
             }
             catch(Exception)
             {
-                //iets doen
+                LoadingControl.DisplayLoadingError(true);
             }
-
-            
-
+            finally
+            {
+                LoadingControl.SetLoadingStatus(false);
+            }
         }
 
         private void PopularSupermarketsLV_ItemClick(object sender, ItemClickEventArgs e)
@@ -200,23 +201,6 @@ namespace Supermarkt_aanbiedingen
                 PivotItemClicked = 1;
 
                 BoodschappenLijstje bl = e.ClickedItem as BoodschappenLijstje;
-                Supermarkt supermarkt = null;
-
-                foreach (Supermarkt s in await GetSAData.GetAllSupermarkets())
-                {
-                    if (s.Name == bl.SupermarktNaam)
-                    {
-                        supermarkt = s;
-                        break;
-                    }
-                }
-
-                if (supermarkt == null)
-                {
-                    return;
-                }
-
-                bl.supermarkt = supermarkt;
 
                 if (!Frame.Navigate(typeof(ShoppingList), bl.Serialize()))
                 {

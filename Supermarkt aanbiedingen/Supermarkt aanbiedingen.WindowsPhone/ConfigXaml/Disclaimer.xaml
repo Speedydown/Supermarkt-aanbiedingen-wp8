@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="WhiteSmoke">
+    Background="LightBlue">
 
     <Grid x:Name="LayoutRoot">
 
@@ -20,7 +20,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="0" VerticalScrollMode="Enabled">
-        <TextBlock Grid.Row="0" TextWrapping="WrapWholeWords" FontSize="18"
+        <TextBlock Grid.Row="0" TextWrapping="WrapWholeWords" FontSize="18" Margin="5"
                    Text="Toepasselijkheid:&#13;Door gebruik te maken van deze app stemt u in met deze disclaimer.&#13; 
                    &#13;Inhoud app:&#13;In deze app worden de aanbiedingen van supermarkten bijgehouden. Deze data kan zowel door de supermarkt zelf worden aangeleverd als door ons uit de betreffende folders van de supermarkten worden overgenomen. Hierdoor kunnen wij u wekelijks op de hoogte houden van alle aanbiedingen. Door het invoeren van alle aanbiedingen weten wij ook de 'van-prijzen\ van vele producten. &#13;&#13;Het kan voorkomen dat een bepaalde prijs gewijzigd is, maar dat wij daar nog niet van op de hoogte zijn. Toch blijkt uit steekproeven dat dit bij slechts een klein percentage van de producten het geval is.
                    

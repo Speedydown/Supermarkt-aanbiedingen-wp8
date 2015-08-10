@@ -15,7 +15,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SynthesizeLinkMetadata>true</SynthesizeLinkMetadata>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
@@ -84,6 +84,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\..\..\Speedydown.nl-API\XamlControlLibrary\XamlControlLibrary.csproj">
+      <Project>{09f3efe7-ac3c-4189-90f1-c7bf9e01af96}</Project>
+      <Name>XamlControlLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Supermarkt-aanbiedingenLogic\Supermarkt-aanbiedingenLogic.csproj">
       <Project>{ab37605f-cb28-4fc5-9ddb-d7a85e9ab561}</Project>
       <Name>Supermarkt-aanbiedingenLogic</Name>
@@ -164,6 +168,11 @@
     <Page Include="ShoppingList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Pivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="SupermarketDiscounts.xaml">
       <SubType>Designer</SubType>

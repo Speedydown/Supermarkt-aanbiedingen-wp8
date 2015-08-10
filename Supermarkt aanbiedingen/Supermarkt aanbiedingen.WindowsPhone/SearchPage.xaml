@@ -5,10 +5,11 @@
     xmlns:local="using:Supermarkt_aanbiedingen"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:CLib="using:XamlControlLibrary"
     mc:Ignorable="d"
-    Background="WhiteSmoke">
+    Background="White">
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="LightBlue">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -22,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
-        <StackPanel Background="White" Grid.Row="0" Margin="5,0,5,10">
+        <StackPanel Grid.Row="0" Margin="5,0,5,10">
             <TextBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="SearchTextbox" KeyDown="SearchTextbox_KeyDown"  PlaceholderText="Zoeken..." IsSpellCheckEnabled="True" Language="NL-nl"  />
         </StackPanel>
 
@@ -35,7 +36,7 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Background="White" Margin="5,0,0,10">
+                    <Grid Background="White" Margin="5,0,5,10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="5"/>
@@ -50,7 +51,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="DarkBlue" Background="White" BorderThickness="0" Margin="5,2">
+                                    <Border BorderBrush="DarkBlue" Background="White" BorderThickness="0" Margin="5,5">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
@@ -81,7 +82,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
+        <CLib:LoadingControl x:Name="LoadingControl" Grid.Row="1" TextColor="White" LoadingText="Bezig met zoeken" ErrorText="Er is iets mis gegaan :( Probeer het later opnieuw" ErrorSubText="Is er wel een internet verbinding?"/>
+
         <Grid x:Name="NoResultsGrid" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
             <StackPanel>
                 <Image Source="/Assets/Search.png" Width="185" />
@@ -90,7 +93,7 @@
         </Grid>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar Background="#FFDCE7F3" Foreground="DarkBlue">
+        <CommandBar Background="White" Foreground="DarkBlue">
             <AppBarButton x:Uid="SearchButton" x:Name="SearchButton" Label="Zoeken" Icon="Find" Click="SearchButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>

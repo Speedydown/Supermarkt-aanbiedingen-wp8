@@ -9,6 +9,7 @@ namespace Supermarkt_aanbiedingenLogic
 {
     public sealed class ProductPagina
     {
+        public int ID { get; private set; }
         [JsonIgnore]
         public Supermarkt supermarkt { get; private set; }
         public string DiscountValid { get; private set; }
@@ -24,8 +25,9 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public ProductPagina(string DiscountValid, IList<Product> Producten, Supermarkt supermarkt)
+        public ProductPagina(int ID, string DiscountValid, IList<Product> Producten, Supermarkt supermarkt)
         {
+            this.ID = ID;
             this.supermarkt = supermarkt;
             this.DiscountValid = DiscountValid;
             this.Producten = Producten;

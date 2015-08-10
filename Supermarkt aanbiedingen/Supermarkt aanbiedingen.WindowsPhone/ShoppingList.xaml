@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="WhiteSmoke">
+    Background="White">
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="LightBlue">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -18,25 +18,37 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" MaxHeight="160">
 
-        <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" />
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SupermarktNaam}" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding supermarkt.Slogan}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding LijstText}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="4">
-            <Image Source="{Binding supermarkt.ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
-        </Border>
-        <ListView x:Name="ProductsLV" Loaded="ProductsLV_Loaded" ItemsSource="{Binding Producten}" Margin="0,5,0,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True" ItemClick="ProductsLV_ItemClick">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="2" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding supermarkt.Name}" Foreground="DarkBlue" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
+
+            <Button x:Name="AddButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Content="Product toevoegen" Margin="0,-5,5,-5" Click="ShowAddButton_Click"/>
+            <Button x:Name="DeleteALlButton" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Content="Lijst verwijderen" Margin="0,-5,5,-5" Click="DeleteALlButton_Click"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding LijstText}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="6">
+                <Image Source="{Binding supermarkt.ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
+            </Border>
+        </Grid>
+       
+        <ListView x:Name="ProductsLV" Loaded="ProductsLV_Loaded" ItemsSource="{Binding Producten}" Margin="0,5,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True" ItemClick="ProductsLV_ItemClick">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -77,7 +89,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Grid x:Name="AddProductGrid" Grid.Row="5" Grid.ColumnSpan="2" Background="White" VerticalAlignment="Bottom" Margin="5,0,5,0" Visibility="Collapsed">
+        <Grid x:Name="AddProductGrid" Grid.Row="3" Grid.ColumnSpan="2" Visibility="Collapsed" Background="White" VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -87,9 +99,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Voeg een eigen product toe:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            
-            <ComboBox x:Name="CountCombovox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Voeg een eigen product toe:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" Margin="5,0,5,0" VerticalAlignment="Top"/>
+
+            <ComboBox x:Name="CountCombovox" Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
                 <ComboBox.Resources>
                     <Style TargetType="ComboBox">
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -101,14 +113,14 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button x:Name="AddProductButton" Grid.Row="1" Grid.Column="1" Content="Toevoegen" Click="AddProductButton_Click" MaxWidth="150" Margin="5,0,0,0" HorizontalAlignment="Stretch"  />
-            
-            <TextBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="ProductTextbox" KeyDown="ProductTextbox_KeyDown" PlaceholderText="Hier de omschrijving van het product" IsSpellCheckEnabled="True" Language="NL-nl"  />
+            <Button x:Name="AddProductButton" Grid.Row="1" Grid.Column="1" Content="Toevoegen" Click="AddProductButton_Click" MaxWidth="150" Margin="5,0,5,0" HorizontalAlignment="Stretch"  />
+
+            <TextBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="ProductTextbox" KeyDown="ProductTextbox_KeyDown" PlaceholderText="Hier de omschrijving van het product" IsSpellCheckEnabled="True" Margin="5,0,5,0" Language="NL-nl"  />
             
         </Grid>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar x:Name="CommandBar" Background="#FFDCE7F3" Foreground="DarkBlue">
+        <CommandBar x:Name="CommandBar" Background="White" Foreground="DarkBlue">
             <AppBarButton x:Uid="ShowAddButton" x:Name="ShowAddButton" Label="Toevoegen" Icon="Add" Click="ShowAddButton_Click"/>
             <AppBarButton x:Uid="HideAddButton" x:Name="HideAddButton" Label="Verbergen" Icon="Remove" Click="ShowAddButton_Click" Visibility="Collapsed"/>
             <AppBarButton x:Uid="AddProductButtonAppbar" x:Name="AddProductButtonAppbar" Label="Product" Icon="Add" Click="AddProductButton_Click_1" Visibility="Collapsed"/>

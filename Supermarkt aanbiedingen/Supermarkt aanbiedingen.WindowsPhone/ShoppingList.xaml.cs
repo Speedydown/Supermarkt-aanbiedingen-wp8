@@ -108,7 +108,7 @@ namespace Supermarkt_aanbiedingen
 
                 foreach (BoodschappenLijstje bl in Lijstjes)
                 {
-                    if (bl.SupermarktNaam == boodschappenlijstje.SupermarktNaam)
+                    if (bl.supermarkt.Name == boodschappenlijstje.supermarkt.Name)
                     {
                         this.boodschappenlijstje = bl;
                         this.DataContext = bl;
@@ -177,10 +177,10 @@ namespace Supermarkt_aanbiedingen
             {
                 try
                 {
-                    await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
+                    await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product(0, "Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
                     this.ShowAndHideAddProduct();
 
-                    this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
+                    this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.supermarkt.Name);
                     this.DataContext = this.boodschappenlijstje;
                 }
                 catch
@@ -201,8 +201,10 @@ namespace Supermarkt_aanbiedingen
 
         private void ShowAndHideAddProduct()
         {
+            AddButton.IsEnabled = this.IsAddProductAvtive;
             this.IsAddProductAvtive = !this.IsAddProductAvtive;
             AddProductGrid.Visibility = this.IsAddProductAvtive ? Windows.UI.Xaml.Visibility.Visible : Windows.UI.Xaml.Visibility.Collapsed;
+
 
             if (IsAddProductAvtive)
             {
@@ -227,16 +229,26 @@ namespace Supermarkt_aanbiedingen
         {
             if (ProductTextbox.Text.Length > 2)
             {
-                await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product("Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
+                await BoodschappenLijstje.AddProductToBoodschappenLijstje(this.boodschappenlijstje.supermarkt, new Product(0, "Betreft eigen product", "Prijs (nog) niet bekend", "", ProductTextbox.Text, "Betreft een door de gebruiker toegevoegd product", "", this.boodschappenlijstje.supermarkt.ImageURL), CountCombovox.SelectedIndex + 1);
                 this.ShowAndHideAddProduct();
 
-                this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.SupermarktNaam);
+                this.boodschappenlijstje = await BoodschappenLijstje.GetBoodschappenLijstjeByName(boodschappenlijstje.supermarkt.Name);
                 this.DataContext = this.boodschappenlijstje;
             }
             else
             {
                 ProductTextbox.Text = "";
             }
+        }
+
+        private async void DeleteALlButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (BoodschappenlijstjeItem bi in this.boodschappenlijstje.Producten)
+            {
+                await BoodschappenLijstje.DeleteProductFromBoodschappenLijstje(boodschappenlijstje.supermarkt, bi.SupermarktItem);
+            }
+
+            Frame.GoBack();
         }
     }
 }
