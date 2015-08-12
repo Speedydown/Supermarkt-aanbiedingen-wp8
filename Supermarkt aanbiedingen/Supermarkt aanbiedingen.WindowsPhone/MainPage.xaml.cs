@@ -115,6 +115,15 @@ namespace Supermarkt_aanbiedingen
                 LoadingControl.DisplayLoadingError(false);
 
                 List<Supermarkt> supermarkten = (List<Supermarkt>)await GetSAData.GetSelectedSuperMarkets();
+
+                if (supermarkten.Count > 0)
+                {
+                    if (supermarkten.First().ID == 0)
+                    {
+                        Frame.Navigate(typeof(ConfigureSupermarkets));
+                    }
+                }
+
                 (sender as ListView).ItemsSource = supermarkten;
 
                 Content.Visibility = Visibility.Visible;
