@@ -150,10 +150,9 @@ namespace Supermarkt_aanbiedingen
             catch
             {
                 NoResultsGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                LoadingControl.SetLoadingStatus(false);
             }
 
-
+            LoadingControl.SetLoadingStatus(false);
 
             SearchTextbox.IsEnabled = true;
             SearchButton.IsEnabled = true;

@@ -246,6 +246,41 @@ namespace Supermarkt_aanbiedingenLogic
             return;
         }
 
+        public static IAsyncAction DeleteBoodSchappenLijstje(BoodschappenLijstje b)
+        {
+            return DeleteBoodSchappenLijstjeHelper(b).AsAsyncAction();
+        }
+
+        private static async Task DeleteBoodSchappenLijstjeHelper(BoodschappenLijstje b)
+        {
+            IList<BoodschappenLijstje> Boodschappenlijstjes = await GetBoodschappenLijstjes();
+
+            foreach (BoodschappenLijstje bt in Boodschappenlijstjes)
+            {
+                if (bt.supermarkt.Name == b.supermarkt.Name)
+                {
+                    Boodschappenlijstjes.Remove(bt);
+                    break;
+                }
+            }
+
+            try
+            {
+                StorageFile file = await localFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
+
+                if (file != null)
+                {
+                    string JsonString = JsonConvert.SerializeObject(await GetBoodschappenLijstjes());
+
+                    await FileIO.WriteTextAsync(file, JsonString);
+                }
+            }
+            catch (Exception)
+            {
+                //Could not save? OHOH
+            }
+        }
+
         public static IAsyncAction DeleteProductFromBoodschappenLijstje(Supermarkt supermarkt, Product product)
         {
             return DeleteProductFromBoodschappenLijstjeHelper(supermarkt, product).AsAsyncAction();

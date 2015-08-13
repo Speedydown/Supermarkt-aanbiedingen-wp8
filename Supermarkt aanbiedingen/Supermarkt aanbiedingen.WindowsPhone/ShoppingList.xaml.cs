@@ -243,10 +243,7 @@ namespace Supermarkt_aanbiedingen
 
         private async void DeleteALlButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (BoodschappenlijstjeItem bi in this.boodschappenlijstje.Producten)
-            {
-                await BoodschappenLijstje.DeleteProductFromBoodschappenLijstje(boodschappenlijstje.supermarkt, bi.SupermarktItem);
-            }
+            await BoodschappenLijstje.DeleteBoodSchappenLijstje(this.boodschappenlijstje);
 
             Frame.GoBack();
         }
