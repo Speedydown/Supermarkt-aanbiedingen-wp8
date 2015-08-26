@@ -41,6 +41,7 @@
     <Compile Include="Classes\BoodschappenLijstje.cs" />
     <Compile Include="Classes\BoodschappenlijstjeItem.cs" />
     <Compile Include="Classes\Categorie.cs" />
+    <Compile Include="NotifcationDataHandler.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductPagina.cs" />
     <Compile Include="Classes\SupermarketSearchResult.cs" />
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\..\Speedydown.nl-API\WebCrawlerTools\WebCrawlerTools.csproj">
       <Project>{ef41c761-8924-40f6-bc70-af1064796ed2}</Project>
       <Name>WebCrawlerTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Speedydown.nl-API\WRCHelperLibrary\WRCHelperLibrary.csproj">
+      <Project>{6f1a5ac4-c4ad-49c8-b37b-c541e09d5742}</Project>
+      <Name>WRCHelperLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

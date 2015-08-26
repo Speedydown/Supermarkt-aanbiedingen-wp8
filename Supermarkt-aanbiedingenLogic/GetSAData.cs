@@ -34,14 +34,16 @@ namespace Supermarkt_aanbiedingenLogic
             return await Supermarkt.GetSelectedSupermarketsFromStorage();
         }
 
-        public static IAsyncOperation<ProductPagina> GetDiscountsFromSupermarket(Supermarkt supermarkt)
+        public static IAsyncOperation<ProductPagina> GetDiscountsFromSupermarket(Supermarkt supermarkt, bool BackgroundTask)
         {
-            return GetDiscountsFromSupermarketHelper(supermarkt).AsAsyncOperation();
+            return GetDiscountsFromSupermarketHelper(supermarkt, BackgroundTask).AsAsyncOperation();
         }
 
-        private static async Task<ProductPagina> GetDiscountsFromSupermarketHelper(Supermarkt supermarkt)
+        private static async Task<ProductPagina> GetDiscountsFromSupermarketHelper(Supermarkt supermarkt, bool BackgroundTask)
         {
-            return JsonConvert.DeserializeObject<ProductPagina>(await HTTPGetUtil.GetDataAsStringFromURL(Host + "/api.ashx?Query=V2GetProductPageBySupermarketID?ID=" + supermarkt.ID));
+            ProductPagina p = JsonConvert.DeserializeObject<ProductPagina>(await HTTPGetUtil.GetDataAsStringFromURL(Host + "/api.ashx?Query=V2GetProductPageBySupermarketID?ID=" + supermarkt.ID + "&BackgroundTask=" + BackgroundTask));
+            await NotifcationDataHandler.Update(supermarkt.Name, p.DiscountValid, BackgroundTask);
+            return p;
         }
 
         public static IAsyncOperation<IList<Supermarkt>> GetDiscountsFromSupermarkets(IList<Supermarkt> supermarkts)

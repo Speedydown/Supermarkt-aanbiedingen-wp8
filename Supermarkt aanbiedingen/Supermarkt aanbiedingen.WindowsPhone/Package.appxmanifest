@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="52891Speedydown.Supermarktaanbiedingen" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="2015.813.2002.0" />
+  <Identity Name="52891Speedydown.Supermarktaanbiedingen" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="2015.826.1440.0" />
   <mp:PhoneIdentity PhoneProductId="361c6197-8fe6-4a1a-901a-544bdb38d894" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Supermarkt aanbiedingen</DisplayName>
@@ -16,14 +16,24 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Supermarkt_aanbiedingen.WindowsPhone.App">
-      <m3:VisualElements DisplayName="Supermarkt aanbiedingen" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Supermarkt aanbiedingen.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="Supermarkt aanbiedingen" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="De supermarkt app voor Windows Phone." ForegroundText="light" BackgroundColor="transparent" ToastCapable="true">
         <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+          <m3:ShowNameOnTiles>
+            <m3:ShowOn Tile="wide310x150Logo" />
+          </m3:ShowNameOnTiles>
         </m3:DefaultTile>
-        <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="white" />
+        <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="lightBlue" />
         <m3:InitialRotationPreference>
           <m3:Rotation Preference="portrait" />
         </m3:InitialRotationPreference>
       </m3:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTaskWP.BackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

@@ -129,7 +129,7 @@ namespace Supermarkt_aanbiedingen
                 {
                     if (s.ProductPagina == null)
                     {
-                        s.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(s);
+                        s.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(s, false);
                     }
                 }
 

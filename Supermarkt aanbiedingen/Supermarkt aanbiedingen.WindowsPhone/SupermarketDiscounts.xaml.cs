@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -34,6 +35,8 @@ namespace Supermarkt_aanbiedingen
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            Task t = ArticleCounter.AddArticleCount();
         }
 
         public NavigationHelper NavigationHelper
@@ -55,8 +58,8 @@ namespace Supermarkt_aanbiedingen
             {
                 supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
                 this.DataContext = supermarkt;
-                supermarkt.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(supermarkt);
-                this.ProductsLV.DataContext =  supermarkt.ProductPagina.Producten;
+                supermarkt.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(supermarkt, false);
+                this.ProductsLV.DataContext = supermarkt.ProductPagina.Producten;
 
                 try
                 {
@@ -80,7 +83,7 @@ namespace Supermarkt_aanbiedingen
                 {
 
                 }
-                
+
             }
             catch
             {
@@ -136,9 +139,9 @@ namespace Supermarkt_aanbiedingen
 
         private async void ProductsLV_Loaded(object sender, RoutedEventArgs e)
         {
-          
 
-            
+
+
         }
     }
 }

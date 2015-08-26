@@ -192,27 +192,30 @@
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>52891Speedydown.112Frysln</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.112Groningen</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.BekendeNederlanders</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.HVZeeland</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.Joop</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.LeeuwarderCourant</MainPackageIdentityName>
-    <MainPackageIdentityName>52891Speedydown.Pownews</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.leftovers</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.PowNed</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.Wldnet</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.WieZitWaarVandaag</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGGZNGJ8">
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.811.1101.1</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.825.1710.0</PackageMaxArchitectureVersion>
     </PackageInfo>
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.811.1101.1</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.825.1710.0</PackageMaxArchitectureVersion>
     </PackageInfo>
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.811.1101.1</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.825.1710.0</PackageMaxArchitectureVersion>
     </PackageInfo>
   </PackageInfoList>
 </StoreAssociation>

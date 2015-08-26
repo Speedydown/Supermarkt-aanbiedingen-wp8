@@ -1011,4 +1011,3 @@ namespace Supermarkt_aanbiedingen.Supermarkt_aanbiedingen_WindowsPhone_XamlTypeI
 }
 
 
-

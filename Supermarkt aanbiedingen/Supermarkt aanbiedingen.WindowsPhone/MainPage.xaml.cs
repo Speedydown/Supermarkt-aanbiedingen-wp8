@@ -1,4 +1,5 @@
-﻿using Supermarkt_aanbiedingen.Common;
+﻿using BackgroundTaskWP;
+using Supermarkt_aanbiedingen.Common;
 using Supermarkt_aanbiedingen.ConfigXaml;
 using Supermarkt_aanbiedingenLogic;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -69,6 +71,8 @@ namespace Supermarkt_aanbiedingen
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             //await StatusBar.GetForCurrentView().HideAsync();
+
+            AskNotificationHandler.AskNotificationQuestion();
 
             if (PivotItemClicked != -1)
             {

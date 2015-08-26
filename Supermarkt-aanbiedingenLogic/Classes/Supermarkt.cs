@@ -175,14 +175,14 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public IAsyncAction GetProductpagina()
+        public IAsyncAction GetProductpagina(bool BackgroundTask)
         {
-            return GetProductpaginaHelper().AsAsyncAction();
+            return GetProductpaginaHelper(BackgroundTask).AsAsyncAction();
         }
 
-        private async Task GetProductpaginaHelper()
+        private async Task GetProductpaginaHelper(bool BackgroundTask)
         {
-            this.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(this);
+            this.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(this, BackgroundTask);
         }
 
         private void SetImageURL()
