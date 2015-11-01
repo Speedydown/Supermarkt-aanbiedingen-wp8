@@ -10,8 +10,8 @@
     <RootPropertyPathName Name="supermarkt" />
     <RootPropertyPathName Name="Width" />
     <RootPropertyPathName Name="ProductPagina" />
-    <RootPropertyPathName Name="DiscountValid" />
     <RootPropertyPathName Name="SelectedItem" />
+    <RootPropertyPathName Name="DiscountValid" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="DiscountPriceBlockVisiblity" />
     <RootPropertyPathName Name="DiscountPrice" />

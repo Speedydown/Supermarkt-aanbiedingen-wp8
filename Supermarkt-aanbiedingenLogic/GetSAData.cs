@@ -12,7 +12,7 @@ namespace Supermarkt_aanbiedingenLogic
     public static class GetSAData
     {
         private const string Host = "http://speedydown-001-site2.smarterasp.net";
-       // private const string Host = "http://localhost:43112";
+        // private const string Host = "http://localhost:43112";
 
         public static IAsyncOperation<IList<Supermarkt>> GetAllSupermarkets()
         {
@@ -72,6 +72,17 @@ namespace Supermarkt_aanbiedingenLogic
             }
 
             return CompletedSupermarkets;
+        }
+
+        public static IAsyncAction SendException(string Exception)
+        {
+            return SendExceptionHelper(Exception).AsAsyncAction();
+        }
+
+        private static async Task SendExceptionHelper(string Exception)
+        {
+            string Query = Host + "/api.ashx?Query=AppException=" + Exception;
+            string input = await HTTPGetUtil.GetDataAsStringFromURL(Query);
         }
     }
 }

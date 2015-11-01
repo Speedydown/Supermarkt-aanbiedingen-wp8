@@ -21,6 +21,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -28,13 +29,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" />
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="35" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Slogan}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-        <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="3" MaxHeight="120" VerticalAlignment="Top">
-            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
+        <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="25" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Slogan}" FontSize="15" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="DiscountVallidTextbox" Grid.Row="2" Grid.Column="1" Text="{Binding ProductPagina.DiscountValid}" FontSize="15" TextWrapping="WrapWholeWords" Margin="0,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Border BorderBrush="DarkBlue" BorderThickness="0" Margin="5" Grid.Row="0" Grid.RowSpan="4" MaxHeight="120" VerticalAlignment="Top">
+            <Image Source="{Binding ImageURL}" HorizontalAlignment="Left" Stretch="Fill" Width="80" Height="80"/>
         </Border>
-        <ListView x:Name="ProductsLV" Loaded="ProductsLV_Loaded" ItemsSource="{Binding}" Margin="0,5,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True" ItemClick="ProductsLV_ItemClick">
+        <ListView x:Name="ProductsLV" Loaded="ProductsLV_Loaded" ItemsSource="{Binding}" Margin="0,5,0,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsItemClickEnabled="True" ItemClick="ProductsLV_ItemClick">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -69,6 +71,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <CLib:LoadingControl x:Name="LoadingControl" HorizontalAlignment="Stretch" Grid.Row="3" TextColor="White" Grid.Column="0" Grid.ColumnSpan="2" LoadingText="Bezig met het ophalen van de aanbiedingen..." ErrorText="Er is iets mis gegaan :( Probeer het later opnieuw" ErrorSubText="Is er wel een internet verbinding?"/>
+        <CLib:LoadingControl x:Name="LoadingControl" HorizontalAlignment="Stretch" Grid.Row="4" TextColor="White" Grid.Column="0" Grid.ColumnSpan="2" LoadingText="Bezig met het ophalen van de aanbiedingen..." ErrorText="Er is iets mis gegaan :( Probeer het later opnieuw" ErrorSubText="Is er wel een internet verbinding?"/>
     </Grid>
 </Page>

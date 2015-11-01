@@ -51,6 +51,7 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            Exception AppException = null;
             LoadingControl.DisplayLoadingError(false);
             LoadingControl.SetLoadingStatus(true);
 
@@ -60,6 +61,7 @@ namespace Supermarkt_aanbiedingen
                 this.DataContext = supermarkt;
                 supermarkt.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(supermarkt, false);
                 this.ProductsLV.DataContext = supermarkt.ProductPagina.Producten;
+                DiscountVallidTextbox.Text = supermarkt.ProductPagina.DiscountValid;
 
                 try
                 {
@@ -85,13 +87,19 @@ namespace Supermarkt_aanbiedingen
                 }
 
             }
-            catch
+            catch (Exception ex)
             {
+                AppException = ex;
                 LoadingControl.DisplayLoadingError(true);
             }
             finally
             {
                 LoadingControl.SetLoadingStatus(false);
+            }
+
+            if (AppException != null)
+            {
+                await GetSAData.SendException(AppException.Message);
             }
         }
 

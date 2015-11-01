@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -21,6 +22,8 @@ namespace Supermarkt_aanbiedingen
 {
     public sealed partial class ProductPage : Page
     {
+        private static readonly string[] ItemCount = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Supermarkt supermarkt;
@@ -46,32 +49,46 @@ namespace Supermarkt_aanbiedingen
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            CountCombovox.ItemsSource = new string[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-            CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[0];
+            Exception AppException = null;
 
-            supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
-            this.DataContext = supermarkt;
-
-            //GetBoodschappenlijstje
-            IList<BoodschappenLijstje> lijstjes = await BoodschappenLijstje.GetBoodschappenLijstjes();
-
-            foreach (BoodschappenLijstje b in lijstjes)
+            try
             {
-                if (b.supermarkt.Name == supermarkt.Name)
-                {
-                    foreach (BoodschappenlijstjeItem BItem in b.Producten)
-                    {
-                        if (BItem.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
-                        {
-                            DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                            AddButtonText.Text = "Wijzig";
-                            BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
-                            CountCombovox.SelectedIndex = BItem.Count - 1;
-                        }
-                    }
+                CountCombovox.ItemsSource = ItemCount;
+                CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[0];
 
-                    break;
+                supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
+                this.DataContext = supermarkt;
+
+                //GetBoodschappenlijstje
+                IList<BoodschappenLijstje> lijstjes = await BoodschappenLijstje.GetBoodschappenLijstjes();
+
+                foreach (BoodschappenLijstje b in lijstjes)
+                {
+                    if (b.supermarkt.Name == supermarkt.Name)
+                    {
+                        foreach (BoodschappenlijstjeItem BItem in b.Producten)
+                        {
+                            if (BItem.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
+                            {
+                                DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                                AddButtonText.Text = "Wijzig";
+                                BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
+                                CountCombovox.SelectedIndex = BItem.Count - 1;
+                            }
+                        }
+
+                        break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                AppException = ex;
+            }
+
+            if (AppException != null)
+            {
+                await GetSAData.SendException(AppException.Message);
             }
         }
 

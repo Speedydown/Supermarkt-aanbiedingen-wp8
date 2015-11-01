@@ -8,106 +8,117 @@
     mc:Ignorable="d"
     Background="White">
 
-    <Grid x:Name="LayoutRoot" Background="LightBlue">
+    <ScrollViewer VerticalScrollMode="Auto">
+        <Grid x:Name="LayoutRoot" Background="LightBlue">
 
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="7"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="1" />
-            <Rectangle Fill="White" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="1" />
-            <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1" />
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Name}" FontSize="25" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
-            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Quantity}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            <StackPanel Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
-                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
-                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
-                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
-                <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-            <Image Source="{Binding ProductPagina.SelectedItem.ImageURL}" Margin="5" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
-        </Grid>
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="0,20,0,0" Background="White" MinHeight="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Margin="5,0" Text="Omschrijving:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords"  VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="1" Margin="5,0,5,25" Text="{Binding ProductPagina.SelectedItem.Description}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="2" Margin="5,0" Text="Deze aanbieding loopt van:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="3" Margin="5,0,5,25" Text="{Binding ProductPagina.DiscountValid}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="4" Margin="5,0" Text="Deze aanbieding is verkrijgbaar bij:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-            <TextBlock Grid.Row="5" Margin="5,0" Text="{Binding Name}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-        </Grid>
 
-        <Grid Grid.Row="2" x:Name="ListRoot" Margin="0,20" Background="White" MinHeight="100">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="BoodschappenlijstTextblock" Margin="5,0"  Grid.Row="0" Grid.ColumnSpan="5" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
-            <ComboBox x:Name="CountCombovox" Grid.Row="1" Margin="5,0"  Grid.Column="0" Grid.ColumnSpan="1">
-                <ComboBox.Resources>
-                    <Style TargetType="ComboBox">
-                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    </Style>
-                </ComboBox.Resources>
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock FontWeight="Bold" Text="{Binding}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Button x:Name="AddButton"  Grid.Row="1" Grid.Column="2" Click="AddButton_Click" Width="150" >
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Assets/clipboard_todo_list_checkmark-512.png" Width="30" Height="30" />
-                    <TextBlock x:Name="AddButtonText" Margin="0, 3, 0 ,0" Text="Toevoegen"/>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="7"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="1" />
+                <Rectangle Fill="White" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="1" />
+                <Rectangle Fill="White" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Name}" FontSize="25" FontWeight="Bold" TextWrapping="WrapWholeWords" Margin="0,0,0,0"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding ProductPagina.SelectedItem.Quantity}" FontSize="17" TextWrapping="WrapWholeWords" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <StackPanel Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,4,2">
+                    <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" Text="Van" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                    <TextBlock Visibility="{Binding ProductPagina.SelectedItem.PriceBlockVisibility}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.Price}" Foreground="DarkRed"  FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                    <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" Text="Nu" FontSize="15" TextWrapping="WrapWholeWords" VerticalAlignment="Bottom" Margin="0,0,2,0"/>
+                    <TextBlock Visibility="{Binding ProductPagina.SelectedItem.DiscountPriceBlockVisiblity}" FontWeight="Bold" Text="{Binding ProductPagina.SelectedItem.DiscountPrice}" FontSize="20" Foreground="DarkGreen" TextWrapping="WrapWholeWords"/>
                 </StackPanel>
-            </Button>
-            <Button x:Name="DeleteButton"  Grid.Row="1" Grid.Column="4" Click="DeleteButton_Click" Width="50" Visibility="Collapsed" >
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Assets/DeleteIcon.png" Width="30" Height="30" />
-                    <TextBlock x:Name="DeleteButtonText" Margin="0, 0, 0 ,0" Text=""/>
-                </StackPanel>
-            </Button>
-            <TextBlock x:Name="StatusTextblock" Grid.Row="2" Margin="5,0"  Grid.ColumnSpan="3" Text="Toegevoegd aan uw boodschappenlijst!" FontSize="14" Visibility="Collapsed" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <Image Source="{Binding ProductPagina.SelectedItem.ImageURL}" Margin="5" Grid.Row="0" Grid.RowSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" Width="120" Height="120"/>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="ContentRoot" Margin="0,20,0,0" Background="White" MinHeight="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="5,0" Text="Omschrijving:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords"  VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="1" Margin="5,0,5,25" Text="{Binding ProductPagina.SelectedItem.Description}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="2" Margin="5,0" Text="Deze aanbieding loopt van:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="3" Margin="5,0,5,25" Text="{Binding ProductPagina.DiscountValid}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="4" Margin="5,0" Text="Deze aanbieding is verkrijgbaar bij:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="5" Margin="5,0" Text="{Binding Name}" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+            </Grid>
+
+            <Grid Grid.Row="2" x:Name="ListRoot" Margin="0,20" Background="White" MinHeight="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="BoodschappenlijstTextblock" Margin="5,0"  Grid.Row="0" Grid.ColumnSpan="5" Text="Voeg toe aan boodschappenlijst:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+                <ComboBox x:Name="CountCombovox" Grid.Row="1" Margin="5,0"  Grid.Column="0" Grid.ColumnSpan="1">
+                    <ComboBox.Resources>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        </Style>
+                    </ComboBox.Resources>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" Text="{Binding}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button x:Name="AddButton"  Grid.Row="1" Grid.Column="2" Click="AddButton_Click" Width="150" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/clipboard_todo_list_checkmark-512.png" Width="30" Height="30" />
+                        <TextBlock x:Name="AddButtonText" Margin="0, 3, 0 ,0" Text="Toevoegen"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="DeleteButton"  Grid.Row="1" Grid.Column="4" Click="DeleteButton_Click" Width="50" Visibility="Collapsed" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/DeleteIcon.png" Width="30" Height="30" />
+                        <TextBlock x:Name="DeleteButtonText" Margin="0, 0, 0 ,0" Text=""/>
+                    </StackPanel>
+                </Button>
+                <TextBlock x:Name="StatusTextblock" Grid.Row="2" Margin="5,0"  Grid.ColumnSpan="3" Text="Toegevoegd aan uw boodschappenlijst!" FontSize="14" Visibility="Collapsed" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
+            </Grid>
+
+            <Grid Grid.Row="3" Margin="0,0,0,0" Background="White" MinHeight="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="5,0" Text="Product afbeelding:" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords"  VerticalAlignment="Top"/>
+                <Image Source="{Binding ProductPagina.SelectedItem.ImageURL}" Margin="5" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Stretch="Fill"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>
