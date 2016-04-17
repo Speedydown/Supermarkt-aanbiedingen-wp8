@@ -20,10 +20,10 @@
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <Pivot x:Name="pivot" Title="Supermarkt aanbiedingen" Style="{StaticResource CustomPivotStyle}">
+        <Pivot x:Name="pivot" Margin="0,-20,0,0" Style="{StaticResource CustomPivotStyle}">
             <PivotItem>
                 <PivotItem.Header>
-                    <TextBlock x:Uid="Section1Header" FontSize="30" FontWeight="Bold" Margin="0, 0, 40 ,0" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Jouw supermarkten" Foreground="DarkBlue"/>
+                    <TextBlock x:Uid="Section1Header" FontSize="30" FontWeight="Bold" Margin="0, 2, 40 ,2" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Jouw supermarkten" Foreground="DarkBlue"/>
                 </PivotItem.Header>
                 <Grid>
                     <Grid x:Name="Content" Visibility="Collapsed" Background="LightBlue" Margin="-20, -23, -20, 0">
@@ -58,7 +58,7 @@
             </PivotItem>
             <PivotItem>
                 <PivotItem.Header>
-                    <TextBlock x:Uid="Section3Header" FontSize="30" Margin="0, 0, 40 ,0" FontWeight="Bold" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Boodschappenlijstjes" Foreground="DarkBlue"/>
+                    <TextBlock x:Uid="Section3Header" FontSize="30" Margin="0, 2, 40 ,2" FontWeight="Bold" TextLineBounds="TrimToBaseline" OpticalMarginAlignment="TrimSideBearings" Text="Boodschappenlijstjes" Foreground="DarkBlue"/>
                 </PivotItem.Header>
                 <Grid>
                     <Grid Background="LightBlue" Margin="-20, -23, -20, 0">

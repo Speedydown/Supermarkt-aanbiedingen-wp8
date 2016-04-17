@@ -49,6 +49,7 @@ namespace Supermarkt_aanbiedingen
         {
             try
             {
+                await StatusBar.GetForCurrentView().HideAsync();
                 LoadingControl.DisplayLoadingError(false);
                 LoadingControl.SetLoadingStatus(true);
 

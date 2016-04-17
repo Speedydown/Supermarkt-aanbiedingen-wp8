@@ -16,6 +16,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Supermarkt_aanbiedingenLogic;
+using System.Threading.Tasks;
+using BaseLogic.ExceptionHandler;
+using BaseLogic.ClientIDHandler;
 
 namespace Supermarkt_aanbiedingen
 {
@@ -29,6 +32,12 @@ namespace Supermarkt_aanbiedingen
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            UnhandledException += App_UnhandledException;
+        }
+
+        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Task t = Task.Run(() => ExceptionHandler.instance.PostException(new AppException(e.Exception), (int)ClientIDHandler.AppName.Supermarkt_Aanbiedingen));
         }
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)

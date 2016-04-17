@@ -366,33 +366,34 @@
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>52891Speedydown.112Frysln</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.112Groningen</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.30000MilliSeconds</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.BekendeNederlanders</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.CardMarket</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.DirtySeconds</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.HVZeeland</MainPackageIdentityName>
-    <MainPackageIdentityName>52891Speedydown.Joop</MainPackageIdentityName>
-    <MainPackageIdentityName>52891Speedydown.LeeuwarderCourant</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.leftovers</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.MixMarathon</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.NetworkPlayer</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.PowNed</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.SpreekwoordenApp</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.Wldnet</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.WieZitWaar</MainPackageIdentityName>
-    <MainPackageIdentityName>52891Speedydown.WieZitWaarVandaag</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGGZNGJ8">
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.826.1440.0</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.1101.0.0</PackageMaxArchitectureVersion>
     </PackageInfo>
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.826.1440.0</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.1101.0.0</PackageMaxArchitectureVersion>
     </PackageInfo>
     <PackageInfo>
       <OsMinVersion>6.3.1.0</OsMinVersion>
       <PackageArchitecture>Neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>2015.826.1440.0</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>2015.1101.0.0</PackageMaxArchitectureVersion>
     </PackageInfo>
   </PackageInfoList>
 </StoreAssociation>

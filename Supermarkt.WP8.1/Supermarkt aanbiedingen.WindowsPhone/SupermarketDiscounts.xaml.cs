@@ -1,4 +1,7 @@
-﻿using Supermarkt_aanbiedingen.Common;
+﻿using BaseLogic.ArticleCounter;
+using BaseLogic.ClientIDHandler;
+using BaseLogic.ExceptionHandler;
+using Supermarkt_aanbiedingen.Common;
 using Supermarkt_aanbiedingenLogic;
 using System;
 using System.Collections.Generic;
@@ -9,6 +12,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -20,21 +24,22 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Supermarkt_aanbiedingen
 {
-    public sealed partial class ProductPage : Page
+    public sealed partial class SupermarketDiscounts : Page
     {
-        private static readonly string[] ItemCount = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Supermarkt supermarkt;
+        private static Product SelectedItem;
 
-        public ProductPage()
+        public SupermarketDiscounts()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            Task t = ArticleCounter.AddArticleCount("Wij bieden Supermarkt aanbiedingen kostenloos aan en we zouden het op prijs stellen als u onze app een positieve review geeft in de Windows store.", "Bedankt");
         }
 
         public NavigationHelper NavigationHelper
@@ -50,45 +55,55 @@ namespace Supermarkt_aanbiedingen
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             Exception AppException = null;
+            LoadingControl.DisplayLoadingError(false);
+            LoadingControl.SetLoadingStatus(true);
 
             try
             {
-                CountCombovox.ItemsSource = ItemCount;
-                CountCombovox.SelectedItem = (CountCombovox.ItemsSource as string[])[0];
-
                 supermarkt = Supermarkt.Deserialize(e.NavigationParameter as string);
                 this.DataContext = supermarkt;
+                supermarkt.ProductPagina = await GetSAData.GetDiscountsFromSupermarket(supermarkt, false);
+                this.ProductsLV.DataContext = supermarkt.ProductPagina.Producten;
+                DiscountVallidTextbox.Text = supermarkt.ProductPagina.DiscountValid;
 
-                //GetBoodschappenlijstje
-                IList<BoodschappenLijstje> lijstjes = await BoodschappenLijstje.GetBoodschappenLijstjes();
-
-                foreach (BoodschappenLijstje b in lijstjes)
+                try
                 {
-                    if (b.supermarkt.Name == supermarkt.Name)
+                    if (SelectedItem != null)
                     {
-                        foreach (BoodschappenlijstjeItem BItem in b.Producten)
+                        foreach (Product p in supermarkt.ProductPagina.Producten)
                         {
-                            if (BItem.SupermarktItem.Name == supermarkt.ProductPagina.SelectedItem.Name)
+                            if (p.ID == SelectedItem.ID)
                             {
-                                DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                                AddButtonText.Text = "Wijzig";
-                                BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
-                                CountCombovox.SelectedIndex = BItem.Count - 1;
+                                supermarkt.ProductPagina.SelectedItem = p;
+                                SelectedItem = null;
+                                ProductsLV.SelectedItem = p;
+                                break;
                             }
                         }
 
-                        break;
+                        ProductsLV.ScrollIntoView(supermarkt.ProductPagina.SelectedItem);
                     }
                 }
+                catch
+                {
+
+                }
+
             }
             catch (Exception ex)
             {
                 AppException = ex;
+                LoadingControl.DisplayLoadingError(true);
+            }
+            finally
+            {
+                Task t = Task.Run(() => ClientIDHandler.instance.PostAppStats(ClientIDHandler.AppName.Supermarkt_Aanbiedingen));
+                LoadingControl.SetLoadingStatus(false);
             }
 
             if (AppException != null)
             {
-                await GetSAData.SendException(AppException.Message);
+                Task t = Task.Run(() => ExceptionHandler.instance.PostException(new AppException(AppException), (int)ClientIDHandler.AppName.Supermarkt_Aanbiedingen));
             }
         }
 
@@ -123,42 +138,22 @@ namespace Supermarkt_aanbiedingen
 
         #endregion
 
-        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        private void ProductsLV_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (AddButtonText.Text != "Wijzig")
-            {
-                AddButtonText.Text = "Wijzig";
-                DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-            else
-            {
-                if (CountCombovox.SelectedIndex == 0)
-                {
-                    StatusTextblock.Text = "Verwijderd!";
-                    AddButtonText.Text = "Toevoegen";
-                    BoodschappenlijstTextblock.Text = "Voeg toe aan boodschappenlijst:";
-                }
-                else
-                {
-                    StatusTextblock.Text = "Aantal gewijzigd!";
-                }
-            }
+            this.supermarkt.ProductPagina.SelectedItem = e.ClickedItem as Product;
+            SelectedItem = e.ClickedItem as Product;
 
-            
-            BoodschappenlijstTextblock.Text = "Verander aantal in boodschappenlijst:";
-            StatusTextblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, CountCombovox.SelectedIndex + 1);
+            if (!Frame.Navigate(typeof(ProductPage), this.supermarkt.Serialize()))
+            {
+
+            }
         }
 
-        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private async void ProductsLV_Loaded(object sender, RoutedEventArgs e)
         {
-            BoodschappenlijstTextblock.Text = "Voeg toe aan boodschappenlijst:";
-            AddButtonText.Text = "Toevoegen";
-            StatusTextblock.Text = "Verwijderd!";
-            await BoodschappenLijstje.AddProductToBoodschappenLijstje(supermarkt, 0);
-            StatusTextblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            DeleteButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        }
 
+
+
+        }
     }
 }

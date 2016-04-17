@@ -70,6 +70,7 @@ namespace Supermarkt_aanbiedingen
 
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            StatusBar.GetForCurrentView().HideAsync();
             //await StatusBar.GetForCurrentView().HideAsync();
 
             AskNotificationHandler.AskNotificationQuestion();
