@@ -84,9 +84,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\..\Speedydown.nl-API\XamlControlLibrary\XamlControlLibrary.csproj">
-      <Project>{09f3efe7-ac3c-4189-90f1-c7bf9e01af96}</Project>
-      <Name>XamlControlLibrary</Name>
+    <ProjectReference Include="..\..\..\win10apps.nl\BaseLogic\BaseLogic.csproj">
+      <Project>{ee050c83-148e-4402-b25c-bc667d855965}</Project>
+      <Name>BaseLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\BackgroundTaskWP\BackgroundTaskWP.csproj">
       <Project>{ccdf9e25-8c15-47b1-8911-47e1de89d6d8}</Project>

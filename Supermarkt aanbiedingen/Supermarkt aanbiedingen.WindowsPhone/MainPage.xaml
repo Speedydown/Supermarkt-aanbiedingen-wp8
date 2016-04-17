@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:Supermarkt_aanbiedingenLogic.Controls"
-    xmlns:CLib="using:XamlControlLibrary"
+    xmlns:CLib="using:BaseLogic.Xaml_Controls"
     Background="LightBlue">
 
 

@@ -1,9 +1,8 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
     <LocalAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\supermarkt aanbiedingen\supermarkt aanbiedingen.windowsphone\obj\debug\intermediatexaml\supermarkt aanbiedingen.windowsphone.exe" HashGuid="ae7bde53-df6a-8934-00ab-64dd7a7ee4a2" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\backgroundtaskwp\bin\debug\backgroundtaskwp.winmd" HashGuid="54011ec6-6c5e-5370-6d4c-6955a006a687" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\packages\newtonsoft.json.7.0.1-beta1\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="6ea6c1fa-8cdc-39f2-a30f-100f2185339f" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen-wp8\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="6c171782-3607-5c2d-de07-ebac9b3a7948" />
-    <ReferenceAssembly PathName="c:\users\teake\documents\github\speedydown.nl-api\xamlcontrollibrary\bin\debug\xamlcontrollibrary.dll" HashGuid="98f137ad-fb4a-9e9c-5ab8-e8d07ba8ce99" />
+    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\backgroundtaskwp\bin\debug\backgroundtaskwp.winmd" HashGuid="54011ec6-6c5e-5370-6d4c-6955a006a687" />
+    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\packages\newtonsoft.json.7.0.1-beta1\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="6ea6c1fa-8cdc-39f2-a30f-100f2185339f" />
+    <ReferenceAssembly PathName="c:\users\teake\documents\github\supermarkt-aanbiedingen\supermarkt-aanbiedingenlogic\bin\debug\supermarkt_aanbiedingenlogic.winmd" HashGuid="4cd8fc0f-f775-a0a4-61d4-47825a8803a3" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

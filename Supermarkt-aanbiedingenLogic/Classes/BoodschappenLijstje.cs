@@ -19,12 +19,7 @@ namespace Supermarkt_aanbiedingenLogic
         private const string FileName = "BoodschappenLijstjes.json";
         private static StorageFolder localFolder = ApplicationData.Current.LocalFolder;
 
-        public static IAsyncOperation<IList<BoodschappenLijstje>> GetBoodschappenLijstjes()
-        {
-            return GetBoodschappenLijstjesHelper().AsAsyncOperation();
-        }
-
-        private static async Task<IList<BoodschappenLijstje>> GetBoodschappenLijstjesHelper()
+        public static async Task<IList<BoodschappenLijstje>> GetBoodschappenLijstjes()
         {
             if (_BoodschappenLijstjes == null)
             {
@@ -74,12 +69,7 @@ namespace Supermarkt_aanbiedingenLogic
             return _BoodschappenLijstjes;
         }
 
-        public static IAsyncOperation<BoodschappenLijstje> GetBoodschappenLijstjeByName(string Name)
-        {
-            return GetBoodschappenLijstjeByNameHelper(Name).AsAsyncOperation();
-        }
-
-        private static async Task<BoodschappenLijstje> GetBoodschappenLijstjeByNameHelper(string Name)
+        public static async Task<BoodschappenLijstje> GetBoodschappenLijstjeByName(string Name)
         {
             if (_BoodschappenLijstjes == null)
             {
@@ -105,12 +95,7 @@ namespace Supermarkt_aanbiedingenLogic
             return null;
         }
 
-        public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt, int Count)
-        {
-            return AddProductToBoodschappenLijstjeHelper(supermarkt, Count).AsAsyncAction();
-        }
-
-        private static async Task AddProductToBoodschappenLijstjeHelper(Supermarkt supermarkt, int Count)
+        public static async Task AddProductToBoodschappenLijstje(Supermarkt supermarkt, int Count)
         {
             if (supermarkt.ProductPagina.SelectedItem == null)
             {
@@ -175,12 +160,7 @@ namespace Supermarkt_aanbiedingenLogic
             return;
         }
 
-        public static IAsyncAction AddProductToBoodschappenLijstje(Supermarkt supermarkt, Product product, int Count)
-        {
-            return AddProductToBoodschappenLijstjeHelper(supermarkt, product, Count).AsAsyncAction();
-        }
-
-        private static async Task AddProductToBoodschappenLijstjeHelper(Supermarkt supermarkt, Product product, int Count)
+        public static async Task AddProductToBoodschappenLijstje(Supermarkt supermarkt, Product product, int Count)
         {
             if (supermarkt == null || product == null)
             {
@@ -246,12 +226,7 @@ namespace Supermarkt_aanbiedingenLogic
             return;
         }
 
-        public static IAsyncAction DeleteBoodSchappenLijstje(BoodschappenLijstje b)
-        {
-            return DeleteBoodSchappenLijstjeHelper(b).AsAsyncAction();
-        }
-
-        private static async Task DeleteBoodSchappenLijstjeHelper(BoodschappenLijstje b)
+        public static async Task DeleteBoodSchappenLijstje(BoodschappenLijstje b)
         {
             IList<BoodschappenLijstje> Boodschappenlijstjes = await GetBoodschappenLijstjes();
 
@@ -281,12 +256,7 @@ namespace Supermarkt_aanbiedingenLogic
             }
         }
 
-        public static IAsyncAction DeleteProductFromBoodschappenLijstje(Supermarkt supermarkt, Product product)
-        {
-            return DeleteProductFromBoodschappenLijstjeHelper(supermarkt, product).AsAsyncAction();
-        }
-
-        private static async Task DeleteProductFromBoodschappenLijstjeHelper(Supermarkt supermarkt, Product product)
+        public static async Task DeleteProductFromBoodschappenLijstje(Supermarkt supermarkt, Product product)
         {
             IList<BoodschappenLijstje> Boodschappenlijstjes = await GetBoodschappenLijstjes();
             BoodschappenLijstje BoodschappenLijstje = null;

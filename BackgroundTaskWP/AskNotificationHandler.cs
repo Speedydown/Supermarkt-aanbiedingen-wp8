@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BaseLogic.Notifications;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,6 @@ using Windows.Foundation;
 using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Popups;
-using WRCHelperLibrary;
 
 namespace BackgroundTaskWP
 {

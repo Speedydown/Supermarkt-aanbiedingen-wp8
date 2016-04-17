@@ -10,7 +10,6 @@ using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
-using WRCHelperLibrary;
 
 namespace Supermarkt_aanbiedingenLogic
 {
