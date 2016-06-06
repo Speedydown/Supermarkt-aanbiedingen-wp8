@@ -30,7 +30,7 @@ namespace Supermarkt_aanbiedingenLogic
             this.ID = ID;
             this.supermarkt = supermarkt;
             this.DiscountValid = DiscountValid;
-            this.Producten = Producten;
+            this.Producten = Producten.OrderBy(p => p.Name).ToList();
         }
 
         public string Serialize()
